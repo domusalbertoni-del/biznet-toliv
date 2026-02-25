@@ -3,30 +3,30 @@ import phonesMockup from "@/assets/phones-mockup.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-8">
+    <section className="relative py-8 lg:py-10 overflow-hidden">
       {/* Radial gradient background */}
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at top left, rgba(139, 92, 246, 0.4), transparent 60%), radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.3), transparent 60%), #0a0a0a' }} />
       {/* Noise texture overlay */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-      <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-12 px-6 lg:px-12 max-w-7xl mx-auto">
+      <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-6 px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="flex-1 max-w-xl animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-4">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             Carretes cerca de ti
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl heading-uppercase leading-[0.92] mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl heading-uppercase leading-[0.92] mb-4">
             Encuentra{" "}
             <span className="text-gradient">Carretes</span>{" "}
             <span className="block mt-1">cerca de ti!</span>
           </h1>
-          <p className="text-lg text-muted-foreground mb-8 max-w-md">
+          <p className="text-base text-muted-foreground mb-5 max-w-md">
             Descarga Toliv para encontrar carretes cerca de ti, conectar con nuestros 10k + usuarios y crear eventos!
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 mb-8">
+          <div className="flex flex-wrap items-center gap-3 mb-5">
             <a
               href="#"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity"
@@ -61,7 +61,7 @@ const HeroSection = () => {
           <img
             src={phonesMockup}
             alt="Toliv app screens"
-            className="w-[480px] md:w-[620px] lg:w-[740px] h-auto"
+            className="w-[400px] md:w-[500px] lg:w-[560px] h-auto"
           />
         </div>
       </div>
