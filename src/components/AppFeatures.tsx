@@ -4,10 +4,11 @@ import appFeed from "@/assets/app-feed.webp";
 import appResale from "@/assets/app-resale.webp";
 import appMatchMode from "@/assets/app-match-mode.png";
 import appXp from "@/assets/app-xp.png";
+import appWallet from "@/assets/app-wallet.png";
 import { useLang } from "@/contexts/LangContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const images = [appFeed, appMatchMode, appXp, appFeed];
+const images = [appFeed, appMatchMode, appXp, appWallet];
 const accents = ["primary", "accent", "primary", "accent"] as const;
 
 const AppFeatures = () => {
