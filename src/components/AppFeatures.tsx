@@ -2,10 +2,11 @@ import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import appFeed from "@/assets/app-feed.webp";
 import appResale from "@/assets/app-resale.webp";
+import appMatchMode from "@/assets/app-match-mode.png";
 import { useLang } from "@/contexts/LangContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const images = [appFeed, appResale, appFeed, appResale, appFeed, appResale];
+const images = [appFeed, appResale, appMatchMode, appResale, appFeed, appResale];
 const accents = ["primary", "accent", "primary", "accent", "primary", "accent"] as const;
 
 const AppFeatures = () => {
