@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Search, Compass, Menu, X } from "lucide-react";
+import tolivLogo from "@/assets/toliv-logo.jpg";
 import { Link } from "react-router-dom";
 
 const navLinks = [
@@ -21,9 +22,12 @@ const Navbar = () => {
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
-        <Link to="/" className="text-xl font-bold">
-          toliv<span className="text-gradient">.</span>events
-        </Link>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="focus:outline-none"
+        >
+          <img src={tolivLogo} alt="Toliv" className="h-8 object-contain" />
+        </button>
       </div>
 
       {/* Desktop nav links */}
