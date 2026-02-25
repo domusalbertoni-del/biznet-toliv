@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Apple, Play } from "lucide-react";
-import phonesMockup from "@/assets/phones-mockup.png";
+import appFeed from "@/assets/app-feed.png";
+import appMatchMode from "@/assets/app-match-mode.png";
+import appWallet from "@/assets/app-wallet.png";
 import { useLang } from "@/contexts/LangContext";
 
 const HeroSection = () => {
@@ -74,7 +76,26 @@ const HeroSection = () => {
             transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          <img src={phonesMockup} alt="Toliv app screens" className="w-[480px] md:w-[620px] lg:w-[740px] h-auto" />
+          <div className="relative w-[320px] md:w-[400px] lg:w-[480px] h-[360px] md:h-[440px] lg:h-[520px]">
+            {/* Left phone */}
+            <img
+              src={appMatchMode}
+              alt="Match Mode screen"
+              className="absolute w-[160px] md:w-[200px] lg:w-[230px] rounded-[2rem] shadow-2xl left-0 top-1/2 -translate-y-1/2 -rotate-6 z-10 opacity-90"
+            />
+            {/* Center phone */}
+            <img
+              src={appFeed}
+              alt="Feed screen"
+              className="absolute w-[180px] md:w-[220px] lg:w-[260px] rounded-[2.5rem] shadow-2xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+            />
+            {/* Right phone */}
+            <img
+              src={appWallet}
+              alt="Wallet screen"
+              className="absolute w-[160px] md:w-[200px] lg:w-[230px] rounded-[2rem] shadow-2xl right-0 top-1/2 -translate-y-1/2 rotate-6 z-10 opacity-90"
+            />
+          </div>
         </div>
       </div>
     </section>
