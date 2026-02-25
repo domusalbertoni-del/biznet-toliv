@@ -1,13 +1,14 @@
-import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LangContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Footer = () => {
   const { t } = useLang();
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.05 });
 
   return (
-    <footer className="border-t border-border py-10 mt-8">
-      <div className="px-6 lg:px-12 max-w-7xl mx-auto">
+    <footer className="border-t border-border py-10 mt-8" ref={ref}>
+      <div className={`px-6 lg:px-12 max-w-7xl mx-auto reveal ${isVisible ? 'visible' : ''}`}>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-10">
           <div>
             <h4 className="font-bold text-xs heading-uppercase tracking-widest text-muted-foreground mb-4">{t.forPartygoers}</h4>
