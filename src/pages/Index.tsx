@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import HeroSection from "@/components/HeroSection";
 import PopularEvents from "@/components/PopularEvents";
 import FeaturedArtists from "@/components/FeaturedArtists";
@@ -11,8 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <Sidebar />
-      <main className="lg:pl-56 pt-14">
+      <main className="pt-14 pb-16 md:pb-0">
         <HeroSection />
         <PopularEvents />
         <FeaturedArtists />
@@ -20,6 +19,7 @@ const Index = () => {
         <OrganizerCTA />
         <Footer />
       </main>
+      <MobileBottomNav />
     </div>
   );
 };
