@@ -1,7 +1,48 @@
 import { Apple, Play } from "lucide-react";
-import phoneMockup from "@/assets/phone-mockup.webp";
-import phoneTicket from "@/assets/phone-ticket.webp";
-import phoneEvent from "@/assets/phone-event.webp";
+import screenSocial from "@/assets/screen-social.jpg";
+import screenEvent from "@/assets/screen-event.png";
+
+const IPhoneFrame = ({
+  src,
+  alt,
+  className = "",
+  style,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  style?: React.CSSProperties;
+}) => (
+  <div
+    className={`bg-black rounded-[2.8rem] p-[5px] shadow-2xl ${className}`}
+    style={style}
+  >
+    <div className="relative rounded-[2.5rem] overflow-hidden bg-black">
+      {/* Dynamic Island */}
+      <div className="absolute top-0 left-0 right-0 z-30 flex justify-center pt-2.5">
+        <div className="w-[90px] h-[28px] bg-black rounded-full" />
+      </div>
+      {/* Status bar */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-7 pt-2 text-[10px] text-white/80 font-medium">
+        <span>9:41</span>
+        <div className="flex items-center gap-1">
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
+          </svg>
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" />
+          </svg>
+        </div>
+      </div>
+      {/* Screenshot */}
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+);
 
 const HeroSection = () => {
   return (
@@ -16,15 +57,16 @@ const HeroSection = () => {
         <div className="flex-1 max-w-xl animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Live events near you
+            Carretes cerca de ti
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl heading-uppercase leading-[0.92] mb-6">
-            <span className="text-gradient">Grab</span> your ticket,{" "}
-            <span className="block mt-1">make <span className="text-gradient">memories</span></span>
+            Encuentra{" "}
+            <span className="text-gradient">Carretes</span>{" "}
+            <span className="block mt-1">cerca de ti!</span>
           </h1>
           <p className="text-lg text-muted-foreground mb-8 max-w-md">
-            Download Toliv to find the best parties, festivals, and events in Chile.
+            Descarga Toliv para encontrar carretes cerca de ti, conectar con nuestros 10k + usuarios y crear eventos!
           </p>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
@@ -57,29 +99,22 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Multi-screen phone mockups */}
+        {/* Two overlapping iPhone mockups — Shotgun style */}
         <div className="flex-1 flex justify-center lg:justify-end">
-          <div className="relative w-[340px] h-[420px] md:w-[400px] md:h-[480px]">
-            {/* Back left phone */}
-            <img
-              src={phoneTicket}
-              alt="Ticket confirmation screen"
-              className="absolute left-0 bottom-0 w-44 md:w-52 rounded-2xl shadow-2xl rotate-[-8deg] z-10 animate-fade-in-up border border-border/30"
-              style={{ animationDelay: "0.4s" }}
+          <div className="relative w-[340px] h-[480px] md:w-[420px] md:h-[560px]">
+            {/* Back phone — rotated, behind */}
+            <IPhoneFrame
+              src={screenSocial}
+              alt="Social feed screen"
+              className="absolute left-0 top-10 w-[220px] md:w-[260px] animate-fade-in-up"
+              style={{ transform: 'rotate(-6deg)', zIndex: 10, animationDelay: '0.4s' }}
             />
-            {/* Center phone (main) */}
-            <img
-              src={phoneMockup}
-              alt="Event feed screen"
-              className="absolute left-1/2 -translate-x-1/2 bottom-4 w-48 md:w-56 rounded-2xl shadow-2xl z-20 animate-fade-in-up border border-border/30"
-              style={{ animationDelay: "0.2s" }}
-            />
-            {/* Back right phone */}
-            <img
-              src={phoneEvent}
+            {/* Front phone — dominant, overlapping */}
+            <IPhoneFrame
+              src={screenEvent}
               alt="Event detail screen"
-              className="absolute right-0 bottom-0 w-44 md:w-52 rounded-2xl shadow-2xl rotate-[8deg] z-10 animate-fade-in-up border border-border/30"
-              style={{ animationDelay: "0.6s" }}
+              className="absolute right-0 top-0 w-[240px] md:w-[280px] animate-fade-in-up"
+              style={{ zIndex: 20, animationDelay: '0.2s' }}
             />
           </div>
         </div>
