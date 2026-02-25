@@ -62,6 +62,7 @@ const HeroSection = () => {
             src={phonesMockup}
             alt="Toliv app screens"
             className="w-[340px] md:w-[460px] lg:w-[540px] h-auto"
+            style={{ mixBlendMode: 'screen' }}
           />
         </div>
       </div>
