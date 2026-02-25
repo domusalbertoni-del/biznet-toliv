@@ -99,9 +99,9 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <Link to="/organizers" className="hidden md:block text-sm text-muted-foreground hover:text-foreground transition-colors">
+        <a href="https://partner.toliv.com/event/new" target="_blank" rel="noopener noreferrer" className="hidden md:block text-sm text-muted-foreground hover:text-foreground transition-colors">
           {t.listYourEvent}
-        </Link>
+        </a>
         <button className="px-5 py-2 rounded-2xl bg-foreground text-background text-sm font-semibold hover:opacity-90 transition-opacity">
           {t.logIn}
         </button>
@@ -121,13 +121,15 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/organizers"
+            <a
+              href="https://partner.toliv.com/event/new"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.listYourEvent}
-            </Link>
+            </a>
             <div className="relative mt-2">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input

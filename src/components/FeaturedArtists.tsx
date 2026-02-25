@@ -9,6 +9,12 @@ const artists = [
   { name: "Neon Wave", series: "Brunch Electronik", image: artist2 },
   { name: "Dark Matter", series: "Sunday Love", image: artist3 },
   { name: "Voltage", series: "The Spotlight", image: artist4 },
+  { name: "Luna Roja", series: "Techno Ritual", image: artist2 },
+  { name: "Nico Bass", series: "Deep Santiago", image: artist3 },
+  { name: "Elektra", series: "Warehouse Sessions", image: artist1 },
+  { name: "Sonic Bloom", series: "Open Air Chile", image: artist4 },
+  { name: "Mati Waves", series: "Club Nocturno", image: artist2 },
+  { name: "Kala", series: "Cumbia Digital", image: artist1 },
 ];
 
 const FeaturedArtists = () => {

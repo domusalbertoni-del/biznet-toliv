@@ -17,10 +17,10 @@ const OrganizerCTA = () => {
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl heading-uppercase mb-4">{t.launchingEvent}</h2>
               <p className="text-base text-muted-foreground mb-8 max-w-md">{t.organizerSubtitle}</p>
-              <Link to="/organizers" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl font-semibold hover:opacity-90 transition-opacity text-accent-foreground" style={{ background: 'linear-gradient(135deg, hsl(16, 90%, 55%), hsl(350, 80%, 58%))' }}>
+              <a href="https://partner.toliv.com/event/new" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl font-semibold hover:opacity-90 transition-opacity text-accent-foreground" style={{ background: 'linear-gradient(135deg, hsl(16, 90%, 55%), hsl(350, 80%, 58%))' }}>
                 {t.listMyEvent}
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
             <div className="flex-1 max-w-lg">
               <img src={dashboardMockup} alt="Event analytics dashboard" className="w-full rounded-xl shadow-2xl border border-border/30" />
