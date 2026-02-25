@@ -77,20 +77,20 @@ const AppFeatures = () => {
 
         <div className={`relative max-w-3xl mx-auto reveal ${isVisible ? 'visible' : ''} reveal-delay-2`}>
           <div className="rounded-2xl overflow-hidden bg-card border border-border/50 p-6 md:p-8">
-            <div className={`transition-all duration-300 ease-in-out ${slideClass}`}>
               <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="flex-1">
+                <div className={`flex-1 transition-all duration-300 ease-in-out ${slideClass}`}>
                   <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${accent === "primary" ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"}`}>
                     {displayed + 1} / {t.features.length}
                   </span>
                   <h3 className="text-xl md:text-2xl font-bold mb-3">{feat.title}</h3>
                   <p className="text-muted-foreground text-sm md:text-base">{feat.description}</p>
                 </div>
-                <div className="flex-1 max-w-[280px] h-[400px] flex items-center justify-center">
+                <div className={`flex-1 max-w-[280px] h-[400px] flex items-center justify-center transition-all duration-300 ease-in-out ${
+                  animState === "exiting" ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                }`}>
                   <img src={images[displayed]} alt={feat.title} className="max-w-full max-h-full object-contain rounded-xl" />
                 </div>
               </div>
-            </div>
           </div>
 
           <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 rounded-full bg-secondary border border-border/50 flex items-center justify-center text-foreground hover:bg-primary/20 hover:border-primary/30 transition-colors">
