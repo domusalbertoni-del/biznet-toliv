@@ -1,48 +1,5 @@
 import { Apple, Play } from "lucide-react";
-import screenSocial from "@/assets/screen-social.jpg";
-import screenEvent from "@/assets/screen-event.png";
-
-const IPhoneFrame = ({
-  src,
-  alt,
-  className = "",
-  style,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-  style?: React.CSSProperties;
-}) => (
-  <div
-    className={`bg-black rounded-[2.8rem] p-[5px] shadow-2xl ${className}`}
-    style={style}
-  >
-    <div className="relative rounded-[2.5rem] overflow-hidden bg-black">
-      {/* Dynamic Island */}
-      <div className="absolute top-0 left-0 right-0 z-30 flex justify-center pt-2.5">
-        <div className="w-[90px] h-[28px] bg-black rounded-full" />
-      </div>
-      {/* Status bar */}
-      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-7 pt-2 text-[10px] text-white/80 font-medium">
-        <span>9:41</span>
-        <div className="flex items-center gap-1">
-          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
-          </svg>
-          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" />
-          </svg>
-        </div>
-      </div>
-      {/* Screenshot */}
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover"
-      />
-    </div>
-  </div>
-);
+import phonesMockup from "@/assets/phones-mockup.svg";
 
 const HeroSection = () => {
   return (
@@ -99,24 +56,13 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Two overlapping iPhone mockups — Shotgun style */}
-        <div className="flex-1 flex justify-center lg:justify-end">
-          <div className="relative w-[340px] h-[480px] md:w-[420px] md:h-[560px]">
-            {/* Back phone — rotated, behind */}
-            <IPhoneFrame
-              src={screenSocial}
-              alt="Social feed screen"
-              className="absolute left-0 top-10 w-[220px] md:w-[260px] animate-fade-in-up"
-              style={{ transform: 'rotate(-6deg)', zIndex: 10, animationDelay: '0.4s' }}
-            />
-            {/* Front phone — dominant, overlapping */}
-            <IPhoneFrame
-              src={screenEvent}
-              alt="Event detail screen"
-              className="absolute right-0 top-0 w-[240px] md:w-[280px] animate-fade-in-up"
-              style={{ zIndex: 20, animationDelay: '0.2s' }}
-            />
-          </div>
+        {/* Phone mockups SVG */}
+        <div className="flex-1 flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <img
+            src={phonesMockup}
+            alt="Toliv app screens"
+            className="w-[340px] md:w-[460px] lg:w-[540px] h-auto"
+          />
         </div>
       </div>
     </section>
