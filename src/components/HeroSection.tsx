@@ -61,7 +61,7 @@ const HeroSection = () => {
           <img
             src={phonesMockup}
             alt="Toliv app screens"
-            className="w-[340px] md:w-[460px] lg:w-[540px] h-auto"
+            className="w-[400px] md:w-[540px] lg:w-[640px] h-auto"
           />
         </div>
       </div>
