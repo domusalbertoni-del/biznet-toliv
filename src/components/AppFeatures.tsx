@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import appFeed from "@/assets/app-feed.webp";
+import appFeed from "@/assets/app-feed.png";
 import appResale from "@/assets/app-resale.webp";
 import appMatchMode from "@/assets/app-match-mode.png";
 import appXp from "@/assets/app-xp.png";
