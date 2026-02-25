@@ -13,22 +13,29 @@ const accents = ["primary", "accent", "primary", "accent"] as const;
 
 const AppFeatures = () => {
   const [current, setCurrent] = useState(0);
+  const [displayed, setDisplayed] = useState(0);
+  const [animState, setAnimState] = useState<"idle" | "exiting" | "entering">("idle");
   const [direction, setDirection] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const { t } = useLang();
   const { ref, isVisible } = useScrollReveal();
 
   const goTo = useCallback(
     (index: number, dir: number) => {
-      if (isAnimating) return;
+      if (animState !== "idle") return;
       setDirection(dir);
-      setIsAnimating(true);
+      setAnimState("exiting");
+      // After exit animation, swap content and enter
       setTimeout(() => {
+        setDisplayed(index);
         setCurrent(index);
-        setIsAnimating(false);
-      }, 300);
+        setAnimState("entering");
+        // After enter animation, go idle
+        setTimeout(() => {
+          setAnimState("idle");
+        }, 300);
+      }, 250);
     },
-    [isAnimating]
+    [animState]
   );
 
   const next = useCallback(() => {
@@ -44,8 +51,17 @@ const AppFeatures = () => {
     return () => clearInterval(timer);
   }, [next]);
 
-  const feat = t.features[current];
-  const accent = accents[current];
+  const feat = t.features[displayed];
+  const accent = accents[displayed];
+
+  const slideClass =
+    animState === "exiting"
+      ? direction > 0
+        ? "opacity-0 -translate-x-6"
+        : "opacity-0 translate-x-6"
+      : animState === "entering"
+      ? "opacity-100 translate-x-0"
+      : "opacity-100 translate-x-0";
 
   return (
     <section className="py-16" ref={ref}>
@@ -60,23 +76,19 @@ const AppFeatures = () => {
         </div>
 
         <div className={`relative max-w-3xl mx-auto reveal ${isVisible ? 'visible' : ''} reveal-delay-2`}>
-          <div
-            className={`rounded-2xl overflow-hidden bg-card border border-border/50 p-6 md:p-8 transition-all duration-300 ${
-              isAnimating
-                ? direction > 0 ? "opacity-0 translate-x-8" : "opacity-0 -translate-x-8"
-                : "opacity-100 translate-x-0"
-            }`}
-          >
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="flex-1">
-                <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${accent === "primary" ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"}`}>
-                  {current + 1} / {t.features.length}
-                </span>
-                <h3 className="text-xl md:text-2xl font-bold mb-3">{feat.title}</h3>
-                <p className="text-muted-foreground text-sm md:text-base">{feat.description}</p>
-              </div>
-              <div className="flex-1 max-w-[280px] h-[400px] flex items-center justify-center">
-                <img src={images[current]} alt={feat.title} className="max-w-full max-h-full object-contain rounded-xl" />
+          <div className="rounded-2xl overflow-hidden bg-card border border-border/50 p-6 md:p-8">
+            <div className={`transition-all duration-300 ease-in-out ${slideClass}`}>
+              <div className="flex flex-col md:flex-row gap-6 items-center">
+                <div className="flex-1">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${accent === "primary" ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"}`}>
+                    {displayed + 1} / {t.features.length}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3">{feat.title}</h3>
+                  <p className="text-muted-foreground text-sm md:text-base">{feat.description}</p>
+                </div>
+                <div className="flex-1 max-w-[280px] h-[400px] flex items-center justify-center">
+                  <img src={images[displayed]} alt={feat.title} className="max-w-full max-h-full object-contain rounded-xl" />
+                </div>
               </div>
             </div>
           </div>
