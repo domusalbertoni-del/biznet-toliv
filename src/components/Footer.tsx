@@ -20,7 +20,7 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-xs heading-uppercase tracking-widest text-muted-foreground mb-4">{t.forOrganizers}</h4>
             <ul className="space-y-2.5">
-              <li><Link to="/organizers" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.sellTickets}</Link></li>
+              <li><a href="https://partner.toliv.com/event/new" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.sellTickets}</a></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.pricing}</a></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.featuresLabel}</a></li>
               <li><Link to="/artists" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.tolivForArtists}</Link></li>
