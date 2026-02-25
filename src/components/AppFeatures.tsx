@@ -73,8 +73,8 @@ const AppFeatures = () => {
                 <h3 className="text-xl md:text-2xl font-bold mb-3">{feat.title}</h3>
                 <p className="text-muted-foreground text-sm md:text-base">{feat.description}</p>
               </div>
-              <div className="flex-1 max-w-[280px]">
-                <img src={images[current]} alt={feat.title} className="w-full rounded-xl" />
+              <div className="flex-1 max-w-[280px] h-[400px] flex items-center justify-center">
+                <img src={images[current]} alt={feat.title} className="max-w-full max-h-full object-contain rounded-xl" />
               </div>
             </div>
           </div>
