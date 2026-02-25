@@ -1,9 +1,16 @@
+import { useEffect, useState } from "react";
 import { Apple, Play } from "lucide-react";
 import phonesMockup from "@/assets/phones-mockup.png";
 import { useLang } from "@/contexts/LangContext";
 
 const HeroSection = () => {
   const { t } = useLang();
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="relative py-8 lg:py-10 overflow-hidden">
@@ -12,7 +19,13 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
       <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-6 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="flex-1 max-w-xl animate-fade-in-up">
+        <div
+          className="flex-1 max-w-xl transition-all duration-1000 ease-out"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? 'translateY(0)' : 'translateY(30px)',
+          }}
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-4">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             {t.heroBadge}
@@ -51,7 +64,16 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+        <div
+          className="flex-1 flex justify-center lg:justify-end transition-all ease-out"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? 'translateY(0)' : 'translateY(80px)',
+            transitionDuration: '1.2s',
+            transitionDelay: '0.2s',
+            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
+        >
           <img src={phonesMockup} alt="Toliv app screens" className="w-[480px] md:w-[620px] lg:w-[740px] h-auto" />
         </div>
       </div>

@@ -5,6 +5,7 @@ import event2 from "@/assets/event-2.webp";
 import event3 from "@/assets/event-3.webp";
 import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LangContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const locations = [
   { flag: "🇨🇱", name: "Santiago" },
@@ -25,11 +26,12 @@ const PopularEvents = () => {
   const [selectedLocation, setSelectedLocation] = useState(locations[0]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { t } = useLang();
+  const { ref: sectionRef, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-16">
+    <section className="py-16" ref={sectionRef}>
       <div className="px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className={`flex items-center justify-between mb-8 reveal ${isVisible ? 'visible' : ''}`}>
           <h2 className="text-2xl md:text-3xl heading-uppercase flex items-center gap-3 flex-wrap">
             {t.popularEventsIn}
             <div className="relative">
@@ -51,8 +53,8 @@ const PopularEvents = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {events.map((event) => (
-            <a key={event.id} href="#" className="group block rounded-2xl overflow-hidden bg-card hover:glow-primary transition-all duration-300">
+          {events.map((event, i) => (
+            <a key={event.id} href="#" className={`group block rounded-2xl overflow-hidden bg-card hover:glow-primary transition-all duration-300 reveal ${isVisible ? 'visible' : ''} reveal-delay-${i + 1}`}>
               <div className="relative aspect-[3/2] overflow-hidden">
                 <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute bottom-3 right-3 bg-accent text-accent-foreground rounded-xl px-3 py-1.5 text-center min-w-[48px]">
@@ -86,7 +88,7 @@ const PopularEvents = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center gap-3 mt-10">
+        <div className={`flex flex-col items-center gap-3 mt-10 reveal ${isVisible ? 'visible' : ''} reveal-delay-4`}>
           <a href="#" className="inline-flex items-center gap-2 px-7 py-3 rounded-2xl border border-border text-sm font-medium hover:bg-secondary hover:border-primary/30 transition-all">
             {t.seeMoreEvents}
           </a>

@@ -1,15 +1,16 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import dashboardMockup from "@/assets/dashboard-mockup.webp";
 import { useLang } from "@/contexts/LangContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const OrganizerCTA = () => {
   const { t } = useLang();
+  const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-16">
+    <section className="py-16" ref={ref}>
       <div className="px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-gradient-to-br from-card via-card to-secondary border border-border/50 p-10 md:p-14 relative overflow-hidden">
+        <div className={`rounded-3xl bg-gradient-to-br from-card via-card to-secondary border border-border/50 p-10 md:p-14 relative overflow-hidden reveal-scale ${isVisible ? 'visible' : ''}`}>
           <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
           
@@ -22,7 +23,7 @@ const OrganizerCTA = () => {
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
-            <div className="flex-1 max-w-lg">
+            <div className={`flex-1 max-w-lg reveal-slide-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
               <img src={dashboardMockup} alt="Event analytics dashboard" className="w-full rounded-xl shadow-2xl border border-border/30" />
             </div>
           </div>
