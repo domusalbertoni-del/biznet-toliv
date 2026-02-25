@@ -14,7 +14,7 @@ const accents = ["primary", "accent", "primary", "accent"] as const;
 const AppFeatures = () => {
   const [current, setCurrent] = useState(0);
   const [displayed, setDisplayed] = useState(0);
-  const [animState, setAnimState] = useState<"idle" | "exiting" | "entering">("idle");
+  const [animState, setAnimState] = useState<"idle" | "exiting" | "entering" | "fading-in">("idle");
   const [direction, setDirection] = useState(0);
   const { t } = useLang();
   const { ref, isVisible } = useScrollReveal();
@@ -29,10 +29,14 @@ const AppFeatures = () => {
         setDisplayed(index);
         setCurrent(index);
         setAnimState("entering");
-        // After enter animation, go idle
-        setTimeout(() => {
-          setAnimState("idle");
-        }, 300);
+        // After a frame, trigger fade-in
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setAnimState("fading-in");
+            // Lock out new transitions until fade completes
+            setTimeout(() => setAnimState("idle"), 500);
+          });
+        });
       }, 250);
     },
     [animState]
@@ -59,8 +63,6 @@ const AppFeatures = () => {
       ? direction > 0
         ? "opacity-0 -translate-x-6"
         : "opacity-0 translate-x-6"
-      : animState === "entering"
-      ? "opacity-100 translate-x-0"
       : "opacity-100 translate-x-0";
 
   return (
@@ -85,8 +87,12 @@ const AppFeatures = () => {
                   <h3 className="text-xl md:text-2xl font-bold mb-3">{feat.title}</h3>
                   <p className="text-muted-foreground text-sm md:text-base">{feat.description}</p>
                 </div>
-                <div className={`flex-1 max-w-[280px] h-[400px] flex items-center justify-center transition-all duration-300 ease-in-out ${
-                  animState === "exiting" ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                <div className={`flex-1 max-w-[280px] h-[400px] flex items-center justify-center transition-all duration-500 ease-in-out ${
+                  animState === "exiting"
+                    ? "opacity-0 scale-95 translate-y-3"
+                    : animState === "entering"
+                    ? "opacity-0 scale-95 translate-y-3"
+                    : "opacity-100 scale-100 translate-y-0"
                 }`}>
                   <img src={images[displayed]} alt={feat.title} className="max-w-full max-h-full object-contain rounded-xl" />
                 </div>
