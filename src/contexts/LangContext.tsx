@@ -40,11 +40,9 @@ const translations = {
     downloadApp: "Download the app",
     features: [
       { title: "Discover the best events", description: "Personalized event feed based on your location, preferences, and friends. Filter by genre, city, or university area." },
-      { title: "Resell tickets hassle-free", description: "P2P marketplace for reselling tickets to sold-out events. Secure, fast, and in-app." },
       { title: "Match Mode — Connect at events", description: "Swipe to connect with other attendees before or during the event. Chat unlocks on match." },
       { title: "Earn XP and rewards", description: "Earn XP points for buying tickets, attending events, inviting friends, and more. Level up and unlock benefits." },
       { title: "Ticket wallet with QR", description: "All your tickets in one place with a QR code for venue entry. Transfer tickets to your friends." },
-      { title: "LIVTO Token — Crypto rewards", description: "Earn LIVTO tokens on Solana through your activity. Use them for discounts, artist tips, and more." },
     ],
 
     // Organizer CTA
@@ -119,11 +117,9 @@ const translations = {
     downloadApp: "Descarga la app",
     features: [
       { title: "Descubre los mejores eventos", description: "Feed personalizado de eventos según tu ubicación, gustos y amigos. Filtra por género, ciudad o zona universitaria." },
-      { title: "Revende tickets sin drama", description: "Marketplace P2P para revender entradas de eventos agotados. Seguro, rápido y dentro de la app." },
       { title: "Match Mode — Conecta en eventos", description: "Haz swipe para conectar con otros asistentes antes o durante el evento. Chat se desbloquea con match." },
       { title: "Gana XP y recompensas", description: "Gana puntos XP por comprar tickets, asistir a eventos, invitar amigos y más. Sube de nivel y desbloquea beneficios." },
       { title: "Wallet de tickets con QR", description: "Todas tus entradas en un solo lugar con código QR para entrar al evento. Transfiere tickets a tus amigos." },
-      { title: "LIVTO Token — Crypto rewards", description: "Gana tokens LIVTO en Solana por tu actividad. Úsalos para descuentos, tips a artistas y más." },
     ],
 
     // Organizer CTA

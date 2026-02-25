@@ -7,8 +7,8 @@ import appXp from "@/assets/app-xp.png";
 import { useLang } from "@/contexts/LangContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const images = [appFeed, appResale, appMatchMode, appXp, appFeed, appResale];
-const accents = ["primary", "accent", "primary", "accent", "primary", "accent"] as const;
+const images = [appFeed, appMatchMode, appXp, appFeed];
+const accents = ["primary", "accent", "primary", "accent"] as const;
 
 const AppFeatures = () => {
   const [current, setCurrent] = useState(0);
