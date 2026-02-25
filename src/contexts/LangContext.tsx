@@ -16,9 +16,9 @@ const translations = {
 
     // Hero
     heroBadge: "Events near you",
-    heroTitle1: "Encuentra",
-    heroTitle2: "Carretes",
-    heroTitle3: "cerca de ti!",
+    heroTitle1: "Find",
+    heroTitle2: "Events",
+    heroTitle3: "near you!",
     heroSubtitle: "Download Toliv to find the best parties, festivals, and events in Chile. Connect with our 10k+ users and create events!",
     appStore: "App Store",
     playStore: "Play Store",
