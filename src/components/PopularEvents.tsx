@@ -1,7 +1,18 @@
-import { Clock, MapPin } from "lucide-react";
+import { useState } from "react";
+import { Clock, MapPin, ChevronDown } from "lucide-react";
 import event1 from "@/assets/event-1.webp";
 import event2 from "@/assets/event-2.webp";
 import event3 from "@/assets/event-3.webp";
+import { Link } from "react-router-dom";
+
+const locations = [
+  { flag: "🇨🇱", name: "Santiago" },
+  { flag: "🇨🇱", name: "Valparaíso" },
+  { flag: "🇺🇸", name: "New York" },
+  { flag: "🇺🇸", name: "Los Angeles" },
+  { flag: "🇬🇧", name: "London" },
+  { flag: "🇫🇷", name: "Paris" },
+];
 
 const events = [
   {
@@ -43,15 +54,42 @@ const events = [
 ];
 
 const PopularEvents = () => {
+  const [selectedLocation, setSelectedLocation] = useState(locations[0]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
     <section className="py-16">
-      <div className="px-6 lg:px-12">
+      <div className="px-6 lg:px-12 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl heading-uppercase flex items-center gap-3">
+          <h2 className="text-2xl md:text-3xl heading-uppercase flex items-center gap-3 flex-wrap">
             Popular events in
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-sm font-medium normal-case tracking-normal text-primary">
-              🇺🇸 United States
-            </span>
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-sm font-medium normal-case tracking-normal text-primary hover:bg-secondary/80 transition-colors"
+              >
+                {selectedLocation.flag} {selectedLocation.name}
+                <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute top-full mt-2 left-0 min-w-[180px] bg-card border border-border rounded-xl shadow-xl z-50 py-1 overflow-hidden">
+                  {locations.map((loc) => (
+                    <button
+                      key={loc.name}
+                      onClick={() => {
+                        setSelectedLocation(loc);
+                        setDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2.5 text-sm hover:bg-secondary transition-colors flex items-center gap-2 ${
+                        selectedLocation.name === loc.name ? 'text-primary font-semibold' : 'text-foreground'
+                      }`}
+                    >
+                      {loc.flag} {loc.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </h2>
         </div>
 
@@ -68,7 +106,6 @@ const PopularEvents = () => {
                   alt={event.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Toliv-style date badge */}
                 <div className="absolute bottom-3 right-3 bg-accent text-accent-foreground rounded-xl px-3 py-1.5 text-center min-w-[48px]">
                   <span className="block text-lg font-bold leading-tight">{event.day}</span>
                   <span className="block text-[10px] font-semibold uppercase tracking-wider">{event.month}</span>
@@ -79,7 +116,6 @@ const PopularEvents = () => {
                     TODAY
                   </div>
                 )}
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
               </div>
               <div className="p-4">
@@ -114,13 +150,19 @@ const PopularEvents = () => {
           ))}
         </div>
 
-        <div className="flex justify-center mt-10">
+        <div className="flex flex-col items-center gap-3 mt-10">
           <a
             href="#"
             className="inline-flex items-center gap-2 px-7 py-3 rounded-2xl border border-border text-sm font-medium hover:bg-secondary hover:border-primary/30 transition-all"
           >
             See more events
           </a>
+          <Link
+            to="/cities"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            View all cities →
+          </Link>
         </div>
       </div>
     </section>

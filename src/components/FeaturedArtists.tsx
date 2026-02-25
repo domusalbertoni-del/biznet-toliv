@@ -13,7 +13,7 @@ const artists = [
 const FeaturedArtists = () => {
   return (
     <section className="py-12 overflow-hidden">
-      <div className="px-6 lg:px-12">
+      <div className="px-6 lg:px-12 max-w-7xl mx-auto">
         <h2 className="text-xl heading-uppercase mb-6 text-muted-foreground">Trending Artists</h2>
         <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
           {artists.map((artist) => (
