@@ -42,6 +42,11 @@ const FeaturedArtists = () => {
             </a>
           ))}
         </div>
+        <div className={`flex justify-center mt-6 reveal ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
+          <a href="#" className="inline-flex items-center gap-2 px-7 py-3 rounded-2xl border border-border text-sm font-medium hover:bg-secondary hover:border-primary/30 transition-all">
+            {t.seeMoreArtists}
+          </a>
+        </div>
       </div>
     </section>
   );
