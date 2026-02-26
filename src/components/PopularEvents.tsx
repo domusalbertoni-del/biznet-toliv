@@ -20,6 +20,11 @@ const events = [
   { id: 1, title: "Neon Nights Festival", price: "$25.00", venue: "Warehouse District", time: "10:00 PM", day: "15", month: "MAR", tags: ["Techno", "House"], image: event1, isToday: false },
   { id: 2, title: "Deep Sessions Vol. 12", price: "$18.50", venue: "The Underground", time: "11:00 PM", day: "21", month: "MAR", tags: ["Deep House", "Minimal"], image: event2, isToday: true },
   { id: 3, title: "Sunset Sounds Open Air", price: "$35.00", venue: "Riverside Park", time: "4:00 PM", day: "29", month: "MAR", tags: ["Electronic", "Dance"], image: event3, isToday: false },
+  { id: 4, title: "Bass Culture", price: "$22.00", venue: "Club Subterráneo", time: "11:30 PM", day: "02", month: "APR", tags: ["Drum & Bass", "Jungle"], image: event1, isToday: false },
+  { id: 5, title: "Ritmo Urbano", price: "$15.00", venue: "Plaza Central", time: "9:00 PM", day: "05", month: "APR", tags: ["Reggaeton", "Latin"], image: event2, isToday: false },
+  { id: 6, title: "Techno Ritual", price: "$30.00", venue: "Fábrica Abandonada", time: "12:00 AM", day: "12", month: "APR", tags: ["Techno", "Industrial"], image: event3, isToday: false },
+  { id: 7, title: "Chill & Groove", price: "$20.00", venue: "Rooftop Lounge", time: "7:00 PM", day: "18", month: "APR", tags: ["Lo-Fi", "Chill"], image: event1, isToday: false },
+  { id: 8, title: "Fiesta Neón", price: "$28.00", venue: "Arena Santiago", time: "10:30 PM", day: "25", month: "APR", tags: ["EDM", "Pop"], image: event2, isToday: false },
 ];
 
 const PopularEvents = () => {
