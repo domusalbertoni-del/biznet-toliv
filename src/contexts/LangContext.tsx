@@ -32,7 +32,7 @@ const translations = {
 
     // Featured Artists
     trendingArtists: "Trending Artists",
-    seeMoreArtists: "See more",
+    seeMoreArtists: "See all",
 
     // App Features
     appFeaturesTitle: "All in",
@@ -110,7 +110,7 @@ const translations = {
 
     // Featured Artists
     trendingArtists: "Artistas en Tendencia",
-    seeMoreArtists: "Ver más",
+    seeMoreArtists: "Ver todos",
 
     // App Features
     appFeaturesTitle: "Todo en",
