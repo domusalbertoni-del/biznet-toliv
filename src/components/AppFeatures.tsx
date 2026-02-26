@@ -114,7 +114,7 @@ const AppFeatures = () => {
         </div>
 
         <div className={`flex justify-center mt-8 reveal ${isVisible ? 'visible' : ''} reveal-delay-3`}>
-          <a href="#" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity glow-primary">
+          <a href="#" id="download-app-cta" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity glow-primary">
             {t.downloadApp}
           </a>
         </div>

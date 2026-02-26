@@ -43,11 +43,11 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 mb-5">
-            <a href="#" className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity">
+            <a href="https://apps.apple.com/us/app/toliv-social/id1551384191" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity">
               <Apple className="w-5 h-5" />
               {t.appStore}
             </a>
-            <a href="#" className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
+            <a href="https://play.google.com/store/apps/details?id=com.tolivmarket.world&hl=en" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
               <Play className="w-5 h-5 fill-current" />
               {t.playStore}
             </a>

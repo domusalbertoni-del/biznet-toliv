@@ -37,22 +37,20 @@ const PopularEvents = () => {
     <section className="py-16" ref={sectionRef}>
       <div className="px-6 lg:px-12 max-w-7xl mx-auto">
         <div className={`flex items-center justify-between mb-8 reveal ${isVisible ? 'visible' : ''}`}>
-          <h2 className="text-2xl md:text-3xl heading-uppercase flex items-center gap-3 flex-wrap">
+          <h2 className="text-2xl md:text-3xl heading-uppercase flex items-center gap-3 flex-wrap relative z-20">
             {t.popularEventsIn}
             <div className="relative">
               <button onClick={() => setDropdownOpen(!dropdownOpen)} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-sm font-medium normal-case tracking-normal text-primary hover:bg-secondary/80 transition-colors">
                 {selectedLocation.flag} {selectedLocation.name}
-                <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
-              {dropdownOpen && (
-                <div className="absolute top-full mt-2 left-0 min-w-[180px] bg-card border border-border rounded-xl shadow-xl z-50 py-1 overflow-hidden">
-                  {locations.map((loc) => (
-                    <button key={loc.name} onClick={() => { setSelectedLocation(loc); setDropdownOpen(false); }} className={`w-full text-left px-4 py-2.5 text-sm hover:bg-secondary transition-colors flex items-center gap-2 ${selectedLocation.name === loc.name ? 'text-primary font-semibold' : 'text-foreground'}`}>
-                      {loc.flag} {loc.name}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <div className={`absolute top-full mt-2 left-0 min-w-[180px] bg-card border border-border rounded-xl shadow-xl z-50 py-1 overflow-hidden transition-all duration-200 origin-top ${dropdownOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}`}>
+                {locations.map((loc) => (
+                  <button key={loc.name} onClick={() => { setSelectedLocation(loc); setDropdownOpen(false); }} className={`w-full text-left px-4 py-2.5 text-sm hover:bg-secondary transition-colors flex items-center gap-2 ${selectedLocation.name === loc.name ? 'text-primary font-semibold' : 'text-foreground'}`}>
+                    {loc.flag} {loc.name}
+                  </button>
+                ))}
+              </div>
             </div>
           </h2>
         </div>
