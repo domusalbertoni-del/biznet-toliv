@@ -52,9 +52,9 @@ const PopularEvents = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
           {events.map((event, i) => (
-            <a key={event.id} href="#" className={`group block rounded-2xl overflow-hidden bg-card hover:glow-primary transition-all duration-300 reveal ${isVisible ? 'visible' : ''} reveal-delay-${i + 1}`}>
+            <a key={event.id} href="#" className={`group flex-shrink-0 w-64 block rounded-2xl overflow-hidden bg-card hover:glow-primary transition-all duration-300 reveal-scale ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: `${i * 0.1}s` }}>
               <div className="relative aspect-[9/16] overflow-hidden">
                 <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute bottom-3 right-3 bg-accent text-accent-foreground rounded-xl px-3 py-1.5 text-center min-w-[48px]">
