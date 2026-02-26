@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Users, FileText, Image, Calendar, Info } from "lucide-react";
+import { ArrowLeft, Users, FileText, Image, Calendar, Info, Lock, Download } from "lucide-react";
 import { getProfileById, formatFollowers } from "@/data/mockProfiles";
 import { useState } from "react";
 import { useLang } from "@/contexts/LangContext";
@@ -129,7 +129,27 @@ const ProfilePage = () => {
 
       {/* Tab content */}
       <div className="px-6 py-12 text-center">
-        {activeTab === "info" && profile.bio ? (
+        {activeTab === "albums" ? (
+          <div className="flex flex-col items-center gap-4 py-8">
+            <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
+              <Lock className="w-7 h-7 text-muted-foreground" />
+            </div>
+            <p className="text-muted-foreground text-sm max-w-xs">
+              {lang === "es"
+                ? "Descarga la app para ver las fotos y álbumes"
+                : "Download the app to see photos and albums"}
+            </p>
+            <a
+              href="https://apps.apple.com/us/app/toliv-social/id1551384191"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+            >
+              <Download className="w-4 h-4" />
+              {lang === "es" ? "Descargar Toliv" : "Download Toliv"}
+            </a>
+          </div>
+        ) : activeTab === "info" && profile.bio ? (
           <div className="max-w-md mx-auto text-left">
             <h3 className="font-semibold mb-2">{lang === "es" ? "Sobre" : "About"}</h3>
             <p className="text-muted-foreground text-sm">{profile.bio}</p>
