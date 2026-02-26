@@ -25,7 +25,7 @@ const FeaturedArtists = () => {
     <section className="py-12 overflow-hidden" ref={ref}>
       <div className="px-6 lg:px-12 max-w-7xl mx-auto">
         {/* Header with dropdown */}
-        <div className={`relative mb-6 reveal ${isVisible ? "visible" : ""}`}>
+        <div className={`relative mb-6 z-20 reveal ${isVisible ? "visible" : ""}`}>
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="inline-flex items-center gap-2 text-xl heading-uppercase text-muted-foreground hover:text-foreground transition-colors"
