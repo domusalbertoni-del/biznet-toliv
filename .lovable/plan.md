@@ -1,42 +1,16 @@
 
 
-## Plan: Replace Hero Phone Mockup with 3 Grouped iPhone Mocks
+## Plan
 
-### Current State
-The hero section uses a single `phones-mockup.png` image. We have 4 iPhone mock screenshots the user provided: `app-feed.png`, `app-match-mode.png`, `app-xp.png`, `app-wallet.png`.
+### 1. Change "Ver más" to "Ver todos" in artists section
+- Update `seeMoreArtists` translation in `LangContext.tsx`: `"See more"` → `"See all"` (EN), `"Ver más"` → `"Ver todos"` (ES)
 
-### Proposed Changes
+### 2. Convert events grid to horizontal swipe carousel
+- In `PopularEvents.tsx`, replace the `grid` layout with a horizontal scrollable `flex` container (same pattern as FeaturedArtists: `flex gap-4 overflow-x-auto pb-4 scrollbar-hide`)
+- Each event card becomes `flex-shrink-0` with a fixed width (e.g., `w-64`) to allow horizontal swiping
+- Keep the 9:16 aspect ratio on event images
+- Keep all existing card content (date badge, today badge, tags, price, etc.)
 
-**File: `src/components/HeroSection.tsx`**
-
-Replace the single `<img>` with a composed layout of 3 phones using the user's uploaded mock images:
-
-- **Center/front phone** (z-20, largest, no rotation) — `app-feed.png`
-- **Left/back phone** (z-10, slightly smaller, rotated ~-8deg, offset left and slightly down) — `app-match-mode.png`
-- **Right/back phone** (z-10, slightly smaller, rotated ~8deg, offset right and slightly down) — `app-wallet.png`
-
-All three phones are grouped tightly together so they overlap, with the front phone clearly dominant.
-
-### Layout Structure
-
-```text
-     [Left Phone]    [Front Phone]    [Right Phone]
-      rotate -8°       no rotate        rotate 8°
-       z-10              z-20             z-10
-      smaller           largest          smaller
-         \                |                /
-          \_______________+_______________/
-                   grouped together
-```
-
-### Technical Details
-
-- Import `appFeed`, `appMatchMode`, `appWallet` from assets
-- Remove the `phones-mockup.png` import
-- Use a `relative` container with 3 absolutely-positioned images
-- Each image gets `rounded-[2.5rem]` to look like a phone screen, plus `shadow-2xl` for depth
-- Front phone: `w-[200px] md:w-[240px] lg:w-[280px]`, centered, z-20
-- Back phones: ~85% the size of front, offset ±80px horizontally, +20px vertically, z-10, slight opacity or scale to create depth
-- Container sized to fit all three with proper overflow
-- Keep the existing entrance animation (translateY fade-in)
+### 3. Suggestions for what to add next
+After implementation, I'll suggest ideas like: testimonials/social proof, a countdown timer for upcoming events, newsletter signup, or a "How it works" section.
 
