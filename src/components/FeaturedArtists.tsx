@@ -33,23 +33,21 @@ const FeaturedArtists = () => {
             {selected.label}
             <ChevronDown className={`w-5 h-5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
           </button>
-          {dropdownOpen && (
-            <div className="absolute top-full mt-2 left-0 min-w-[240px] bg-card border border-border rounded-xl shadow-xl z-50 py-1 overflow-hidden">
-              {options.map((opt) => (
-                <button
-                  key={opt.value}
-                  onClick={() => { setViewMode(opt.value); setDropdownOpen(false); }}
-                  className={`w-full text-left px-4 py-2.5 text-sm hover:bg-secondary transition-colors ${viewMode === opt.value ? "text-primary font-semibold" : "text-foreground"}`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          )}
+          <div className={`absolute top-full mt-2 left-0 min-w-[240px] bg-card border border-border rounded-xl shadow-xl z-50 py-1 overflow-hidden transition-all duration-200 origin-top ${dropdownOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}`}>
+            {options.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => { setViewMode(opt.value); setDropdownOpen(false); }}
+                className={`w-full text-left px-4 py-2.5 text-sm hover:bg-secondary transition-colors ${viewMode === opt.value ? "text-primary font-semibold" : "text-foreground"}`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Profiles carousel */}
-        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide transition-opacity duration-300" key={viewMode}>
           {profiles.map((profile, i) => (
             <Link
               key={profile.id}
