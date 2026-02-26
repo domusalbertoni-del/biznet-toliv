@@ -33,7 +33,7 @@ const HeroSection = () => {
             {t.heroBadge}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl heading-uppercase leading-[0.92] mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl heading-uppercase leading-[0.92] mb-4 text-center md:text-left">
             {t.heroTitle1}{" "}
             <span className="text-gradient">{t.heroTitle2}</span>{" "}
             <span className="block mt-1">{t.heroTitle3}</span>
