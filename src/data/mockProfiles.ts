@@ -1,7 +1,9 @@
-import artist1 from "@/assets/artist-1.webp";
-import artist2 from "@/assets/artist-2.webp";
-import artist3 from "@/assets/artist-3.webp";
-import artist4 from "@/assets/artist-4.webp";
+import lewisSomes from "@/assets/lewis-somes.jpeg";
+import marcianeke from "@/assets/marcianeke.jpeg";
+import djDomus from "@/assets/dj-domus.jpg";
+import floyyMenor from "@/assets/floyy-menor.jpg";
+import loyaltty from "@/assets/loyaltty.jpg";
+import cuartero from "@/assets/cuartero.webp";
 import event1 from "@/assets/event-1.webp";
 import event2 from "@/assets/event-2.webp";
 import event3 from "@/assets/event-3.webp";
@@ -20,16 +22,16 @@ export interface ProfileData {
 }
 
 export const artistProfiles: ProfileData[] = [
-  { id: "dj-pulse", type: "artist", name: "DJ Pulse", avatar: artist1, cover: event1, followers: 2340, posts: 18, albums: 3, series: "Nü Androids", bio: "Electronic music producer & DJ based in Santiago. Resident at Nü Androids." },
-  { id: "neon-wave", type: "artist", name: "Neon Wave", avatar: artist2, cover: event2, followers: 5120, posts: 42, albums: 5, series: "Brunch Electronik", bio: "Deep house & melodic techno. International touring artist." },
-  { id: "dark-matter", type: "artist", name: "Dark Matter", avatar: artist3, cover: event3, followers: 1890, posts: 9, albums: 2, series: "Sunday Love", bio: "Underground techno. Dark, hypnotic, relentless." },
-  { id: "voltage", type: "artist", name: "Voltage", avatar: artist4, cover: event1, followers: 3760, posts: 27, albums: 4, series: "The Spotlight", bio: "High-energy sets blending house, techno, and breaks." },
-  { id: "luna-roja", type: "artist", name: "Luna Roja", avatar: artist2, cover: event3, followers: 980, posts: 5, albums: 1, series: "Techno Ritual", bio: "Rising star in the Chilean techno scene." },
-  { id: "nico-bass", type: "artist", name: "Nico Bass", avatar: artist3, cover: event2, followers: 4200, posts: 31, albums: 6, series: "Deep Santiago", bio: "Bass music innovator. Drum & bass meets Latin rhythms." },
-  { id: "elektra", type: "artist", name: "Elektra", avatar: artist1, cover: event1, followers: 7500, posts: 56, albums: 8, series: "Warehouse Sessions", bio: "Queen of the warehouse. Industrial techno pioneer." },
-  { id: "sonic-bloom", type: "artist", name: "Sonic Bloom", avatar: artist4, cover: event3, followers: 2100, posts: 14, albums: 3, series: "Open Air Chile", bio: "Organic house & downtempo for open-air gatherings." },
-  { id: "mati-waves", type: "artist", name: "Mati Waves", avatar: artist2, cover: event2, followers: 1560, posts: 8, albums: 2, series: "Club Nocturno", bio: "Late-night grooves. Minimal and deep." },
-  { id: "kala", type: "artist", name: "Kala", avatar: artist1, cover: event1, followers: 3300, posts: 22, albums: 4, series: "Cumbia Digital", bio: "Blending cumbia with electronic production." },
+  { id: "lewis-somes", type: "artist", name: "Lewis Somes", avatar: lewisSomes, cover: event1, followers: 2340, posts: 18, albums: 3, series: "Música Urbana", bio: "Artista urbano emergente en la escena chilena." },
+  { id: "marcianeke", type: "artist", name: "Marcianeke", avatar: marcianeke, cover: event2, followers: 15120, posts: 42, albums: 5, series: "Música Urbana", bio: "Ícono del reggaetón chileno. Éxitos internacionales." },
+  { id: "dj-domus", type: "artist", name: "DJ Domus", avatar: djDomus, cover: event3, followers: 1890, posts: 9, albums: 2, series: "Música Electrónica", bio: "DJ y productor de música electrónica." },
+  { id: "floyy-menor", type: "artist", name: "Floyy Menor", avatar: floyyMenor, cover: event1, followers: 8760, posts: 27, albums: 4, series: "Música Urbana", bio: "Artista urbano con flow único." },
+  { id: "loyaltty", type: "artist", name: "Loyaltty", avatar: loyaltty, cover: event3, followers: 6980, posts: 15, albums: 3, series: "Música Urbana", bio: "Cantante y compositora urbana." },
+  { id: "cuartero", type: "artist", name: "Cuartero", avatar: cuartero, cover: event2, followers: 12200, posts: 31, albums: 6, series: "Música Electrónica", bio: "DJ y productor español de tech house y techno." },
+  { id: "elektra", type: "artist", name: "Elektra", avatar: lewisSomes, cover: event1, followers: 7500, posts: 56, albums: 8, series: "Warehouse Sessions", bio: "Queen of the warehouse. Industrial techno pioneer." },
+  { id: "sonic-bloom", type: "artist", name: "Sonic Bloom", avatar: marcianeke, cover: event3, followers: 2100, posts: 14, albums: 3, series: "Open Air Chile", bio: "Organic house & downtempo for open-air gatherings." },
+  { id: "mati-waves", type: "artist", name: "Mati Waves", avatar: djDomus, cover: event2, followers: 1560, posts: 8, albums: 2, series: "Club Nocturno", bio: "Late-night grooves. Minimal and deep." },
+  { id: "kala", type: "artist", name: "Kala", avatar: floyyMenor, cover: event1, followers: 3300, posts: 22, albums: 4, series: "Cumbia Digital", bio: "Blending cumbia with electronic production." },
 ];
 
 export const eventProfiles: ProfileData[] = [

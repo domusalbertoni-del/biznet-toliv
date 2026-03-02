@@ -8,6 +8,7 @@ import { useLang } from "@/contexts/LangContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const locations = [
+  { flag: "🇨🇱", name: "Punta Arenas" },
   { flag: "🇨🇱", name: "Santiago" },
   { flag: "🇨🇱", name: "Valparaíso" },
   { flag: "🇨🇱", name: "Viña del Mar" },
