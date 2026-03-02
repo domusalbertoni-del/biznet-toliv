@@ -80,6 +80,11 @@ const translations = {
     weAreSocial: "We are social",
     allRightsReserved: "© 2026 Toliv. All rights reserved.",
 
+    // Cities
+    citiesPageTitle: "All Cities",
+    citiesPageSubtitle: "Explore events across Chile. Select a city on the map or browse below.",
+    eventsThisWeek: "events this week",
+
     // Mobile nav
     home: "Home",
     search: "Search",
@@ -162,6 +167,11 @@ const translations = {
     consumerInfo: "Información al Consumidor",
     weAreSocial: "Síguenos",
     allRightsReserved: "© 2026 Toliv. Todos los derechos reservados.",
+
+    // Cities
+    citiesPageTitle: "Todas las ciudades",
+    citiesPageSubtitle: "Explora eventos en todo Chile. Selecciona una ciudad en el mapa o navega abajo.",
+    eventsThisWeek: "eventos esta semana",
 
     // Mobile nav
     home: "Inicio",
