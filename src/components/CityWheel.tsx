@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 // CSS 3D Transform carousel - no Three.js needed
-import { ChevronLeft, ChevronRight, Calendar, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, Calendar, MapPin, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLang } from "@/contexts/LangContext";
 
@@ -24,6 +24,12 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
   const [dragStartX, setDragStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const [autoRotate, setAutoRotate] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const filteredCities = searchQuery
+    ? cities.filter((c) => c.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    : cities;
 
   const count = cities.length;
   const angleStep = 360 / count;
@@ -181,29 +187,30 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
         </div>
       </div>
 
-      {/* Navigation arrows */}
-      <div className="flex items-center justify-center gap-6 mt-4">
+      {/* Navigation: arrows + city name pills */}
+      <div className="flex items-center justify-center gap-4 mt-4">
         <Button
           variant="outline"
           size="icon"
           onClick={handlePrev}
-          className="rounded-full border-border/60 bg-card/80 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/40 transition-all"
+          className="rounded-full border-border/60 bg-card/80 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/40 transition-all shrink-0"
         >
           <ChevronLeft className="w-5 h-5" />
         </Button>
 
-        {/* City indicator dots */}
-        <div className="flex items-center gap-2">
-          {cities.map((_, i) => (
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-[280px] md:max-w-none md:flex-wrap md:justify-center">
+          {cities.map((city, i) => (
             <button
-              key={i}
+              key={city.id}
               onClick={() => goTo(i)}
-              className={`rounded-full transition-all duration-300 ${
+              className={`whitespace-nowrap px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 shrink-0 ${
                 i === internalIndex
-                  ? "w-6 h-2 bg-primary"
-                  : "w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                  : "bg-card/60 text-muted-foreground border border-border/40 hover:bg-card hover:text-foreground"
               }`}
-            />
+            >
+              {city.name}
+            </button>
           ))}
         </div>
 
@@ -211,21 +218,62 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
           variant="outline"
           size="icon"
           onClick={handleNext}
-          className="rounded-full border-border/60 bg-card/80 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/40 transition-all"
+          className="rounded-full border-border/60 bg-card/80 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/40 transition-all shrink-0"
         >
           <ChevronRight className="w-5 h-5" />
         </Button>
       </div>
 
-      {/* Selected city info panel */}
-      <div className="mt-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/60 border border-border/40 backdrop-blur-sm">
-          <MapPin className="w-4 h-4 text-primary" />
-          <span className="text-lg font-bold text-foreground">{selected?.name}</span>
-          <span className="text-muted-foreground mx-1">·</span>
-          <span className="text-sm text-muted-foreground">
-            {selected?.eventCount} {t.eventsThisWeek}
-          </span>
+      {/* Searchable city info panel */}
+      <div className="mt-6 flex justify-center">
+        <div className="relative w-full max-w-sm">
+          <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-card/60 border border-border/40 backdrop-blur-sm focus-within:border-primary/50 focus-within:shadow-lg focus-within:shadow-primary/10 transition-all">
+            <Search className="w-4 h-4 text-muted-foreground shrink-0" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => setShowDropdown(true)}
+              placeholder={`${selected?.name} · ${selected?.eventCount} ${t.eventsThisWeek}`}
+              className="bg-transparent border-none outline-none text-sm text-foreground placeholder:text-muted-foreground w-full"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => { setSearchQuery(""); setShowDropdown(false); }}
+                className="text-muted-foreground hover:text-foreground text-xs"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+          {showDropdown && filteredCities.length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-2 rounded-xl bg-card/95 border border-border/40 backdrop-blur-xl shadow-2xl shadow-black/40 z-50 overflow-hidden">
+              {filteredCities.map((city) => {
+                const originalIndex = cities.findIndex((c) => c.id === city.id);
+                return (
+                  <button
+                    key={city.id}
+                    onClick={() => {
+                      goTo(originalIndex);
+                      setSearchQuery("");
+                      setShowDropdown(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-primary/10 ${
+                      originalIndex === internalIndex ? "bg-primary/5" : ""
+                    }`}
+                  >
+                    <MapPin className="w-4 h-4 text-primary shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-foreground">{city.name}</span>
+                      <span className="text-xs text-muted-foreground ml-2">
+                        {city.eventCount} {t.eventsThisWeek}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
