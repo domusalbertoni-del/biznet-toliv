@@ -27,7 +27,19 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
 
   const count = cities.length;
   const angleStep = 360 / count;
-  const radius = 320;
+
+  // Responsive radius & card size
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const radius = isMobile ? 180 : 320;
+  const cardW = isMobile ? 160 : 240;
+  const cardH = isMobile ? 220 : 320;
 
   const [internalIndex, setInternalIndex] = useState(selectedIndex);
   
@@ -89,7 +101,7 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
       {/* 3D Wheel */}
       <div
         ref={containerRef}
-        className="relative w-full h-[420px] md:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing"
+        className="relative w-full h-[340px] md:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing"
         onMouseDown={(e) => handleDragStart(e.clientX)}
         onMouseMove={(e) => handleDragMove(e.clientX)}
         onMouseUp={handleDragEnd}
@@ -123,17 +135,18 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
                   style={{
                     transformStyle: "preserve-3d",
                     transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
-                    left: "-120px",
-                    top: "-160px",
+                    left: `${-cardW / 2}px`,
+                    top: `${-cardH / 2}px`,
                   }}
                   onClick={() => goTo(i)}
                 >
                   <div
-                    className={`w-[240px] h-[320px] rounded-2xl overflow-hidden transition-all duration-500 ${
+                    className={`rounded-2xl overflow-hidden transition-all duration-500 ${
                       isActive
                         ? "scale-110 shadow-2xl shadow-primary/40 ring-2 ring-primary"
                         : "scale-90 opacity-60 hover:opacity-80"
                     }`}
+                    style={{ width: `${cardW}px`, height: `${cardH}px` }}
                   >
                     <div className="relative w-full h-full">
                       <img
