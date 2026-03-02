@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Users, FileText, Image, Calendar, Info, Lock, Download } from "lucide-react";
+import { ArrowLeft, Users, FileText, Image, Calendar, Info, Lock, ShoppingBag } from "lucide-react";
 import { getProfileById, formatFollowers } from "@/data/mockProfiles";
 import { useState } from "react";
 import { useLang } from "@/contexts/LangContext";
@@ -7,14 +7,15 @@ import { useLang } from "@/contexts/LangContext";
 const tabs = [
   { id: "posts", icon: FileText },
   { id: "albums", icon: Image },
+  { id: "shop", icon: ShoppingBag },
   { id: "eventos", icon: Calendar },
   { id: "seguidores", icon: Users },
   { id: "info", icon: Info },
 ];
 
 const tabLabels: Record<string, Record<string, string>> = {
-  en: { posts: "Posts", albums: "Albums", eventos: "Events", seguidores: "Followers", info: "Info" },
-  es: { posts: "Posts", albums: "Albums", eventos: "Eventos", seguidores: "Seguidores", info: "Info" },
+  en: { posts: "Posts", albums: "Albums", shop: "Shop", eventos: "Events", seguidores: "Followers", info: "Info" },
+  es: { posts: "Posts", albums: "Albums", shop: "Tienda", eventos: "Eventos", seguidores: "Seguidores", info: "Info" },
 };
 
 const ProfilePage = () => {
@@ -38,6 +39,7 @@ const ProfilePage = () => {
     en: {
       posts: "This page has no posts yet",
       albums: "No albums yet",
+      shop: "No merch available yet",
       eventos: "No events yet",
       seguidores: "No followers yet",
       info: "",
@@ -45,6 +47,7 @@ const ProfilePage = () => {
     es: {
       posts: "Esta página aún no tiene publicaciones",
       albums: "Aún no hay álbumes",
+      shop: "Aún no hay merch disponible",
       eventos: "Aún no hay eventos",
       seguidores: "Aún no hay seguidores",
       info: "",
@@ -140,12 +143,11 @@ const ProfilePage = () => {
                 : "Download the app to see photos and albums"}
             </p>
             <a
-              href="https://apps.apple.com/us/app/toliv-social/id1551384191"
+              href="https://www.toliv.com/download-app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center px-10 py-3.5 rounded-2xl bg-primary text-primary-foreground text-base font-bold hover:opacity-90 transition-opacity"
             >
-              <Download className="w-4 h-4" />
               {lang === "es" ? "Descargar Toliv" : "Download Toliv"}
             </a>
           </div>
