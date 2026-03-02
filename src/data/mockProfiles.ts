@@ -4,6 +4,10 @@ import djDomus from "@/assets/dj-domus.jpg";
 import floyyMenor from "@/assets/floyy-menor.jpg";
 import loyaltty from "@/assets/loyaltty.jpg";
 import cuartero from "@/assets/cuartero.webp";
+import eliasDeepman from "@/assets/elias-deepman.jpg";
+import crisMj from "@/assets/cris-mj.jpeg";
+import pabloChillE from "@/assets/pablochill-e.jpg";
+import katteyes from "@/assets/katteyes.jpg";
 import event1 from "@/assets/event-1.webp";
 import event2 from "@/assets/event-2.webp";
 import event3 from "@/assets/event-3.webp";
@@ -28,10 +32,10 @@ export const artistProfiles: ProfileData[] = [
   { id: "floyy-menor", type: "artist", name: "Floyy Menor", avatar: floyyMenor, cover: event1, followers: 8760, posts: 27, albums: 4, series: "Música Urbana", bio: "Artista urbano con flow único." },
   { id: "loyaltty", type: "artist", name: "Loyaltty", avatar: loyaltty, cover: event3, followers: 6980, posts: 15, albums: 3, series: "Música Urbana", bio: "Cantante y compositora urbana." },
   { id: "cuartero", type: "artist", name: "Cuartero", avatar: cuartero, cover: event2, followers: 12200, posts: 31, albums: 6, series: "Música Electrónica", bio: "DJ y productor español de tech house y techno." },
-  { id: "elektra", type: "artist", name: "Elektra", avatar: lewisSomes, cover: event1, followers: 7500, posts: 56, albums: 8, series: "Warehouse Sessions", bio: "Queen of the warehouse. Industrial techno pioneer." },
-  { id: "sonic-bloom", type: "artist", name: "Sonic Bloom", avatar: marcianeke, cover: event3, followers: 2100, posts: 14, albums: 3, series: "Open Air Chile", bio: "Organic house & downtempo for open-air gatherings." },
-  { id: "mati-waves", type: "artist", name: "Mati Waves", avatar: djDomus, cover: event2, followers: 1560, posts: 8, albums: 2, series: "Club Nocturno", bio: "Late-night grooves. Minimal and deep." },
-  { id: "kala", type: "artist", name: "Kala", avatar: floyyMenor, cover: event1, followers: 3300, posts: 22, albums: 4, series: "Cumbia Digital", bio: "Blending cumbia with electronic production." },
+  { id: "elias-deepman", type: "artist", name: "Elias Deepman", avatar: eliasDeepman, cover: event1, followers: 7500, posts: 56, albums: 8, series: "Música Electrónica", bio: "DJ y productor de deep house y techno melódico." },
+  { id: "cris-mj", type: "artist", name: "Cris MJ", avatar: crisMj, cover: event3, followers: 21000, posts: 34, albums: 5, series: "Música Urbana", bio: "Estrella del reggaetón chileno con hits virales." },
+  { id: "pablochill-e", type: "artist", name: "Pablo Chill-E", avatar: pabloChillE, cover: event2, followers: 18500, posts: 28, albums: 6, series: "Música Urbana", bio: "Pionero del trap chileno. Estilo único." },
+  { id: "katteyes", type: "artist", name: "Katteyes", avatar: katteyes, cover: event1, followers: 3300, posts: 22, albums: 4, series: "Música Urbana", bio: "Cantante urbana emergente con voz potente." },
 ];
 
 export const eventProfiles: ProfileData[] = [
