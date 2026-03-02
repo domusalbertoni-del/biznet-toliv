@@ -10,10 +10,11 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const locations = [
   { flag: "🇨🇱", name: "Santiago" },
   { flag: "🇨🇱", name: "Valparaíso" },
-  { flag: "🇺🇸", name: "New York" },
-  { flag: "🇺🇸", name: "Los Angeles" },
-  { flag: "🇬🇧", name: "London" },
-  { flag: "🇫🇷", name: "Paris" },
+  { flag: "🇨🇱", name: "Viña del Mar" },
+  { flag: "🇨🇱", name: "Concepción" },
+  { flag: "🇨🇱", name: "La Serena" },
+  { flag: "🇨🇱", name: "Antofagasta" },
+  { flag: "🇨🇱", name: "Temuco" },
 ];
 
 const events = [
@@ -36,7 +37,7 @@ const PopularEvents = () => {
   return (
     <section className="py-16" ref={sectionRef}>
       <div className="px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className={`flex items-center justify-between mb-8 reveal ${isVisible ? 'visible' : ''}`}>
+        <div className={`flex items-center justify-between mb-8 relative z-[60] reveal ${isVisible ? 'visible' : ''}`}>
           <h2 className="text-2xl md:text-3xl heading-uppercase flex items-center gap-3 flex-wrap relative z-20">
             {t.popularEventsIn}
             <div className="relative">
@@ -44,7 +45,7 @@ const PopularEvents = () => {
                 {selectedLocation.flag} {selectedLocation.name}
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`absolute top-full mt-2 left-0 min-w-[180px] bg-card border border-border rounded-xl shadow-xl z-50 py-1 overflow-hidden transition-all duration-200 origin-top ${dropdownOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}`}>
+              <div className={`absolute top-full mt-2 left-0 min-w-[180px] bg-card border border-border rounded-xl shadow-xl z-[60] py-1 overflow-hidden transition-all duration-200 origin-top ${dropdownOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}`}>
                 {locations.map((loc) => (
                   <button key={loc.name} onClick={() => { setSelectedLocation(loc); setDropdownOpen(false); }} className={`w-full text-left px-4 py-2.5 text-sm hover:bg-secondary transition-colors flex items-center gap-2 ${selectedLocation.name === loc.name ? 'text-primary font-semibold' : 'text-foreground'}`}>
                     {loc.flag} {loc.name}
