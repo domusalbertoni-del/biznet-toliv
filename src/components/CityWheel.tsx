@@ -26,6 +26,7 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
   const [autoRotate, setAutoRotate] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const pillsRef = useRef<HTMLDivElement>(null);
 
   const filteredCities = searchQuery
     ? cities.filter((c) => c.name.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -52,6 +53,16 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
   useEffect(() => {
     setInternalIndex(selectedIndex);
   }, [selectedIndex]);
+
+  // Auto-scroll pills to keep selected city visible
+  useEffect(() => {
+    if (pillsRef.current) {
+      const activeBtn = pillsRef.current.children[internalIndex] as HTMLElement;
+      if (activeBtn) {
+        activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      }
+    }
+  }, [internalIndex]);
 
   useEffect(() => {
     if (!autoRotate || isDragging) return;
@@ -198,7 +209,7 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
           <ChevronLeft className="w-5 h-5" />
         </Button>
 
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-[280px] md:max-w-none md:flex-wrap md:justify-center">
+        <div ref={pillsRef} className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-[280px] md:max-w-none md:flex-wrap md:justify-center">
           {cities.map((city, i) => (
             <button
               key={city.id}
