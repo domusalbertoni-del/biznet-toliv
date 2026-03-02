@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Clock, MapPin, ChevronDown } from "lucide-react";
-import event1 from "@/assets/event-1.webp";
-import event2 from "@/assets/event-2.webp";
-import event3 from "@/assets/event-3.webp";
+import club1Flyer from "@/assets/club-1-flyer.jpg";
+import mamisongaFlyer from "@/assets/mamisonga-flyer.jpg";
+import miercolesPoFlyer from "@/assets/miercoles-po-flyer.jpg";
+import genesisFlyer from "@/assets/genesis-flyer.jpg";
 import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LangContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -19,14 +20,14 @@ const locations = [
 ];
 
 const events = [
-  { id: 1, title: "Neon Nights Festival", price: "$25.00", venue: "Warehouse District", time: "10:00 PM", day: "15", month: "MAR", tags: ["Techno", "House"], image: event1, isToday: false },
-  { id: 2, title: "Deep Sessions Vol. 12", price: "$18.50", venue: "The Underground", time: "11:00 PM", day: "21", month: "MAR", tags: ["Deep House", "Minimal"], image: event2, isToday: true },
-  { id: 3, title: "Sunset Sounds Open Air", price: "$35.00", venue: "Riverside Park", time: "4:00 PM", day: "29", month: "MAR", tags: ["Electronic", "Dance"], image: event3, isToday: false },
-  { id: 4, title: "Bass Culture", price: "$22.00", venue: "Club Subterráneo", time: "11:30 PM", day: "02", month: "APR", tags: ["Drum & Bass", "Jungle"], image: event1, isToday: false },
-  { id: 5, title: "Ritmo Urbano", price: "$15.00", venue: "Plaza Central", time: "9:00 PM", day: "05", month: "APR", tags: ["Reggaeton", "Latin"], image: event2, isToday: false },
-  { id: 6, title: "Techno Ritual", price: "$30.00", venue: "Fábrica Abandonada", time: "12:00 AM", day: "12", month: "APR", tags: ["Techno", "Industrial"], image: event3, isToday: false },
-  { id: 7, title: "Chill & Groove", price: "$20.00", venue: "Rooftop Lounge", time: "7:00 PM", day: "18", month: "APR", tags: ["Lo-Fi", "Chill"], image: event1, isToday: false },
-  { id: 8, title: "Fiesta Neón", price: "$28.00", venue: "Arena Santiago", time: "10:30 PM", day: "25", month: "APR", tags: ["EDM", "Pop"], image: event2, isToday: false },
+  { id: 1, title: "Club 1", price: "$15.00", venue: "Recoleta", time: "11:00 PM", day: "06", month: "MAR", tags: ["Techno"], image: club1Flyer, isToday: false },
+  { id: 2, title: "Mamisonga", price: "$12.00", venue: "Secret Spot, Peñaflor", time: "11:00 AM", day: "08", month: "MAR", tags: ["Reggaeton"], image: mamisongaFlyer, isToday: false },
+  { id: 3, title: "Miércoles Po", price: "$10.00", venue: "Hangar, Santiago", time: "10:30 PM", day: "04", month: "MAR", tags: ["Party"], image: miercolesPoFlyer, isToday: true },
+  { id: 4, title: "Genesis", price: "$20.00", venue: "Ignis Centro de Eventos", time: "11:00 PM", day: "06", month: "MAR", tags: ["Techno"], image: genesisFlyer, isToday: false },
+  { id: 5, title: "Ritmo Urbano", price: "$15.00", venue: "Plaza Central", time: "9:00 PM", day: "05", month: "APR", tags: ["Reggaeton"], image: mamisongaFlyer, isToday: false },
+  { id: 6, title: "Techno Ritual", price: "$30.00", venue: "Fábrica Abandonada", time: "12:00 AM", day: "12", month: "APR", tags: ["Techno"], image: club1Flyer, isToday: false },
+  { id: 7, title: "Chill & Groove", price: "$20.00", venue: "Rooftop Lounge", time: "7:00 PM", day: "18", month: "APR", tags: ["Lo-Fi"], image: genesisFlyer, isToday: false },
+  { id: 8, title: "Fiesta Neón", price: "$28.00", venue: "Arena Santiago", time: "10:30 PM", day: "25", month: "APR", tags: ["EDM"], image: miercolesPoFlyer, isToday: false },
 ];
 
 const PopularEvents = () => {
