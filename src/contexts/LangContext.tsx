@@ -51,6 +51,10 @@ const translations = {
     organizerSubtitle: "Your event deserves the best crowd. Smart targeting, real-time analytics, and seamless ticketing.",
     listMyEvent: "List my event",
     learnMore: "Learn more",
+    organizerSlides: [
+      { description: "Track your sales, inventory, and audience in real time." },
+      { description: "Use our POS machines at no rental or monthly fee — just a 2.9% service charge." },
+    ],
 
     // Footer
     forPartygoers: "For Partygoers",
@@ -130,6 +134,10 @@ const translations = {
     organizerSubtitle: "Tu evento merece el mejor público. Segmentación inteligente, analytics en tiempo real y ticketing sin fricciones.",
     listMyEvent: "Publica mi evento",
     learnMore: "Saber más",
+    organizerSlides: [
+      { description: "Lleva el control de tus ventas, inventario y audiencia en tiempo real." },
+      { description: "Ocupa nuestras máquinas POS sin costo de arriendo ni mensualidad con un cobro por servicio de 2.9%." },
+    ],
 
     // Footer
     forPartygoers: "Para Asistentes",
@@ -164,8 +172,10 @@ const translations = {
 } as const;
 
 type Translations = {
-  [K in keyof typeof translations.en]: (typeof translations.en)[K] extends readonly any[]
+  [K in keyof typeof translations.en]: (typeof translations.en)[K] extends readonly { title: string; description: string }[]
     ? readonly { title: string; description: string }[]
+    : (typeof translations.en)[K] extends readonly { description: string }[]
+    ? readonly { description: string }[]
     : string;
 };
 
