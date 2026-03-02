@@ -18,10 +18,15 @@ const OrganizerCTA = () => {
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl heading-uppercase mb-4">{t.launchingEvent}</h2>
               <p className="text-base text-muted-foreground mb-8 max-w-md">{t.organizerSubtitle}</p>
-              <a href="https://partner.toliv.com/event/new" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl font-semibold hover:opacity-90 transition-opacity text-accent-foreground" style={{ background: 'linear-gradient(135deg, hsl(16, 90%, 55%), hsl(350, 80%, 58%))' }}>
-                {t.listMyEvent}
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <div className="flex flex-col sm:flex-row items-center md:items-start gap-3">
+                <a href="https://partner.toliv.com/event/new" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl font-semibold hover:opacity-90 transition-opacity text-accent-foreground" style={{ background: 'linear-gradient(135deg, hsl(16, 90%, 55%), hsl(350, 80%, 58%))' }}>
+                  {t.listMyEvent}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a href="https://partner.toliv.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl border border-border text-sm font-medium hover:bg-secondary transition-colors">
+                  {t.learnMore}
+                </a>
+              </div>
             </div>
             <div className={`flex-1 max-w-lg reveal-slide-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
               <img src={dashboardMockup} alt="Event analytics dashboard" className="w-full rounded-xl shadow-2xl border border-border/30" />

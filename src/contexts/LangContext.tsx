@@ -50,6 +50,7 @@ const translations = {
     launchingEvent: "Launching an event?",
     organizerSubtitle: "Your event deserves the best crowd. Smart targeting, real-time analytics, and seamless ticketing.",
     listMyEvent: "List my event",
+    learnMore: "Learn more",
 
     // Footer
     forPartygoers: "For Partygoers",
@@ -128,6 +129,7 @@ const translations = {
     launchingEvent: "¿Lanzas un evento?",
     organizerSubtitle: "Tu evento merece el mejor público. Segmentación inteligente, analytics en tiempo real y ticketing sin fricciones.",
     listMyEvent: "Publica mi evento",
+    learnMore: "Saber más",
 
     // Footer
     forPartygoers: "Para Asistentes",
