@@ -171,13 +171,7 @@ const translations = {
   },
 } as const;
 
-type Translations = {
-  [K in keyof typeof translations.en]: (typeof translations.en)[K] extends readonly { title: string; description: string }[]
-    ? readonly { title: string; description: string }[]
-    : (typeof translations.en)[K] extends readonly { description: string }[]
-    ? readonly { description: string }[]
-    : string;
-};
+type Translations = (typeof translations)[Lang];
 
 interface LangContextType {
   lang: Lang;
