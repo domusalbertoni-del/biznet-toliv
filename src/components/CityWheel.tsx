@@ -101,7 +101,8 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
       {/* 3D Wheel */}
       <div
         ref={containerRef}
-        className="relative w-full h-[340px] md:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing"
+        className="relative w-full h-[400px] md:h-[560px] cursor-grab active:cursor-grabbing"
+        style={{ perspective: "1200px", perspectiveOrigin: "center 45%" }}
         onMouseDown={(e) => handleDragStart(e.clientX)}
         onMouseMove={(e) => handleDragMove(e.clientX)}
         onMouseUp={handleDragEnd}
@@ -111,11 +112,7 @@ const CityWheel = ({ cities, selectedIndex, onSelect }: CityWheelProps) => {
         onTouchEnd={handleDragEnd}
       >
         <div
-          className="absolute left-1/2 top-1/2 w-0 h-0"
-          style={{
-            perspective: "1000px",
-            perspectiveOrigin: "center",
-          }}
+          className="absolute left-1/2 top-[45%] w-0 h-0"
         >
           <div
             className="relative preserve-3d transition-transform duration-700 ease-out"
