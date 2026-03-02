@@ -1,39 +1,48 @@
 
 
-## Cities Page Plan — Map-based with City Cards
+## Plan: 3D Rotating City Wheel for Cities Page
 
-### Overview
-Create a `/cities` route with an interactive SVG map of Chile showing pinned cities. Each city pin is clickable and shows a card with a photo, city name, and event count.
+### Concept
+Replace the current map + cards layout with an immersive 3D rotating carousel/wheel. Each city is represented as a floating card with its photo, name, and event count, arranged in a circular formation that the user can spin by dragging or clicking arrows. The selected city card comes to the front, scales up, and glows.
 
 ### Technical Approach
 
-**1. Create `src/pages/CitiesPage.tsx`**
-- Full-page layout with Navbar, MobileBottomNav, and a hero header ("Todas las ciudades" / "All cities")
-- Two-column layout on desktop: left side has the SVG map of Chile with animated pin markers for each city; right side has a scrollable list of city cards
-- On mobile: map on top (smaller), city cards grid below
-- Each city card: landmark/cityscape photo, city name, fake event count (e.g., "12 eventos esta semana")
-- Clicking a city pin on the map highlights the corresponding card (scroll into view); clicking a card could navigate to `/events/:city` (placeholder for now)
+**1. Install dependencies**
+- `@react-three/fiber@^8.18` and `three@^0.166` for 3D rendering
+- `@react-three/drei@^9.122.0` for helper utilities (Text, Image, etc.)
 
-**2. Create `src/components/ChileMap.tsx`**
-- Simplified SVG outline of Chile with positioned dots/pins for each city (Santiago, Valparaíso, Viña del Mar, Concepción, La Serena, Antofagasta, Temuco, Punta Arenas)
-- Pins are interactive: hover glow effect, click triggers callback
-- Selected city pin gets a pulsing accent ring
+**2. Rewrite `src/pages/CitiesPage.tsx`**
+- Remove the two-column map + cards layout
+- Replace with a full-width immersive section: header on top, 3D canvas below
+- The 3D canvas renders a circular carousel of city cards
+- Below the canvas (or overlaid): selected city info panel with name, event count, and a "View events" CTA
 
-**3. City data & images**
-- We'll need a city photo for each of the 8 cities. Options:
-  - Use placeholder images initially with gradient overlays and city names
-  - Or you can upload photos for each city
-- City data array with: name, coordinates (for map pin positioning), photo, eventCount
+**3. Create `src/components/CityWheel.tsx`**
+- Uses `@react-three/fiber` Canvas with a circular arrangement of 8 city cards
+- Each card is a 3D plane with the city photo as texture, city name as text overlay
+- Cards are positioned in a circle (using sin/cos for x/z positions)
+- Auto-rotates slowly; user can click left/right arrows or drag to spin
+- Selected card scales up and moves slightly forward
+- Smooth spring animations for rotation transitions using `useFrame`
 
-**4. Add route in `src/App.tsx`**
-- Add `/cities` route pointing to `CitiesPage`
+**4. Create `src/components/CityCard3D.tsx`**
+- Individual 3D card component: textured plane with rounded corners effect
+- Gradient overlay at bottom with city name and event count
+- Glow/bloom effect on the selected card using emissive material
+- Hover effect: slight scale up
 
-**5. Translations**
-- Add `citiesPageTitle`, `eventsThisWeek` to both EN/ES in `LangContext.tsx`
+**5. Update `src/components/ChileMap.tsx`**
+- Delete this component (no longer needed)
 
-### Design Details
-- Map uses the same dark theme as the rest of the site
-- City pins use `bg-primary` color with a subtle pulse animation
-- Cards have rounded corners, photo with gradient overlay, city name and event count overlaid at the bottom
-- Scroll reveal animations consistent with other sections
+**6. Keep existing**
+- Route, translations, city data array, and images all stay the same
+
+### Interaction Flow
+- Page loads → wheel auto-rotates slowly
+- Click a card or use arrow buttons → wheel snaps to that city
+- Selected city info appears below/overlaid with event count and CTA
+- On mobile: wheel is touch-draggable, slightly smaller canvas
+
+### Fallback
+- If 3D performance is a concern, a CSS 3D transform carousel (using `perspective` and `rotateY`) is a lighter alternative that still gives the spinning wheel effect without Three.js. This would be simpler and more performant.
 
