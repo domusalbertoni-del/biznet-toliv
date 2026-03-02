@@ -25,12 +25,9 @@ const Navbar = () => {
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="focus:outline-none"
-        >
+        <Link to="/" className="focus:outline-none">
           <img src={tolivLogo} alt="Toliv" className="h-8 object-contain" />
-        </button>
+        </Link>
 
         {/* Language selector */}
         <div className="relative">
