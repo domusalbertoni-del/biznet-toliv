@@ -7,6 +7,7 @@ import { LangProvider } from "@/contexts/LangContext";
 import Index from "./pages/Index";
 import ProfilePage from "./pages/ProfilePage";
 import CitiesPage from "./pages/CitiesPage";
+import ArtistsPage from "./pages/ArtistsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/profile/:id" element={<ProfilePage />} />
             <Route path="/cities" element={<CitiesPage />} />
+            <Route path="/artists" element={<ArtistsPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
