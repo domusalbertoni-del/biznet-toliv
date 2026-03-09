@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import {
   ArrowLeft, Lock, MapPin, Music, Share2, Instagram, Twitter, Heart,
+  Calendar, Globe,
 } from "lucide-react";
 import {
   getProfileById, formatFollowers,
@@ -122,6 +123,51 @@ const ProfilePage = () => {
               <Share2 className="w-4 h-4" />
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* ── About Section (Shotgun-inspired) ── */}
+      <div className="px-6 py-8 max-w-3xl mx-auto">
+        {/* Bio */}
+        {profile.bio && (
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            {profile.bio}
+          </p>
+        )}
+
+        {/* Meta row: country + first event */}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+          {profile.country && (
+            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+              <Globe className="w-3.5 h-3.5" />
+              {profile.country}
+            </span>
+          )}
+          {profile.firstEventDate && (
+            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+              <Calendar className="w-3.5 h-3.5 text-primary" />
+              {lang === "es" ? "En Toliv desde" : "On Toliv since"}{" "}
+              <span className="text-foreground font-medium">{profile.firstEventDate}</span>
+            </span>
+          )}
+        </div>
+
+        {/* Social links row */}
+        <div className="flex items-center gap-3 mt-5">
+          {[
+            { Icon: Instagram, label: "Instagram" },
+            { Icon: Twitter, label: "X" },
+            { Icon: Music, label: "Spotify" },
+          ].map(({ Icon, label }) => (
+            <a
+              key={label}
+              href="#"
+              className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 cursor-pointer"
+              title={label}
+            >
+              <Icon className="w-4 h-4" />
+            </a>
+          ))}
         </div>
       </div>
 
@@ -360,20 +406,8 @@ const FollowersTab = ({ followers, lang }: { followers: MockFollower[]; lang: st
 /* ═══════════════════════════════════════════
    Info — Editorial Sections
    ═══════════════════════════════════════════ */
-const InfoTab = ({ profile, lang }: { profile: { bio?: string; series?: string }; lang: string }) => (
+const InfoTab = ({ profile, lang }: { profile: { bio?: string; series?: string; followers: number; posts: number; albums: number }; lang: string }) => (
   <div className="max-w-lg mx-auto space-y-10">
-    {/* Pull-quote bio */}
-    {profile.bio && (
-      <div>
-        <h3 className="text-[11px] font-bold text-muted-foreground tracking-widest uppercase mb-4">
-          {lang === "es" ? "Sobre" : "About"}
-        </h3>
-        <p className="text-xl md:text-2xl font-light leading-relaxed italic text-foreground/80">
-          "{profile.bio}"
-        </p>
-      </div>
-    )}
-
     {/* Genre */}
     {profile.series && (
       <div>
@@ -387,18 +421,20 @@ const InfoTab = ({ profile, lang }: { profile: { bio?: string; series?: string }
       </div>
     )}
 
-    {/* Social */}
+    {/* Stats summary */}
     <div>
       <h3 className="text-[11px] font-bold text-muted-foreground tracking-widest uppercase mb-4">
-        {lang === "es" ? "Redes Sociales" : "Social"}
+        {lang === "es" ? "Estadísticas" : "Stats"}
       </h3>
-      <div className="flex gap-3">
-        {[Instagram, Twitter, Music].map((Icon, i) => (
-          <div
-            key={i}
-            className="w-12 h-12 rounded-full bg-secondary/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer"
-          >
-            <Icon className="w-5 h-5" />
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { value: formatFollowers(profile.followers), label: lang === "es" ? "Seguidores" : "Followers" },
+          { value: profile.posts, label: "Posts" },
+          { value: profile.albums, label: "Albums" },
+        ].map((s) => (
+          <div key={s.label} className="text-center py-4 rounded-xl bg-secondary/40 border border-border/20">
+            <p className="font-bold text-lg text-primary">{s.value}</p>
+            <p className="text-[10px] text-muted-foreground mt-1">{s.label}</p>
           </div>
         ))}
       </div>
