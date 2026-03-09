@@ -27,6 +27,8 @@ export interface ProfileData {
   albums: number;
   series?: string;
   bio?: string;
+  country?: string;
+  firstEventDate?: string;
 }
 
 export interface MockPost {
