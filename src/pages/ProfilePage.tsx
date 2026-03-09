@@ -127,16 +127,16 @@ const ProfilePage = () => {
       </div>
 
       {/* ── About Section (Shotgun-inspired) ── */}
-      <div className="px-6 py-8 max-w-3xl mx-auto">
+      <div className="px-6 py-10 max-w-3xl mx-auto flex flex-col items-center text-center">
         {/* Bio */}
         {profile.bio && (
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
             {profile.bio}
           </p>
         )}
 
         {/* Meta row: country + first event */}
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-5">
           {profile.country && (
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
               <Globe className="w-3.5 h-3.5" />
@@ -153,7 +153,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Social links row */}
-        <div className="flex items-center gap-3 mt-5">
+        <div className="flex items-center justify-center gap-3 mt-5">
           {[
             { Icon: Instagram, label: "Instagram" },
             { Icon: Twitter, label: "X" },
