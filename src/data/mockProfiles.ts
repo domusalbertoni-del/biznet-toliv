@@ -29,6 +29,7 @@ export interface ProfileData {
   bio?: string;
   country?: string;
   firstEventDate?: string;
+  verified?: boolean;
 }
 
 export interface MockPost {
