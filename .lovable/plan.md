@@ -1,48 +1,60 @@
 
 
-## Plan: 3D Rotating City Wheel for Cities Page
+## Plan: Concert Poster / Editorial Profile Redesign
 
-### Concept
-Replace the current map + cards layout with an immersive 3D rotating carousel/wheel. Each city is represented as a floating card with its photo, name, and event count, arranged in a circular formation that the user can spin by dragging or clicking arrows. The selected city card comes to the front, scales up, and glows.
+### Vision
+Transform the profile page from a standard social-media card layout into a cinematic, editorial experience. Each section should feel like a spread in a concert magazine — bold typography, full-bleed imagery, dramatic spacing, and immersive transitions.
 
-### Technical Approach
+### Layout Changes
 
-**1. Install dependencies**
-- `@react-three/fiber@^8.18` and `three@^0.166` for 3D rendering
-- `@react-three/drei@^9.122.0` for helper utilities (Text, Image, etc.)
+**Hero — Full-screen cinematic intro**
+- Cover image extends to near full viewport height (`h-[85vh]`) with a dramatic multi-stop gradient fade
+- Avatar overlaps the bottom of the cover, much larger (40-44 vw on mobile, capped at 180px)
+- Name rendered in huge bold text (4xl-6xl) with letter-spacing, positioned over the cover fade
+- Stats rendered inline beneath the name in a single elegant line (e.g. "2.3K followers · 18 posts · 3 albums") instead of boxed cards
+- Follow + Share buttons side by side, pill-shaped, minimal
 
-**2. Rewrite `src/pages/CitiesPage.tsx`**
-- Remove the two-column map + cards layout
-- Replace with a full-width immersive section: header on top, 3D canvas below
-- The 3D canvas renders a circular carousel of city cards
-- Below the canvas (or overlaid): selected city info panel with name, event count, and a "View events" CTA
+**Tabs — Minimal underline style**
+- Remove pill backgrounds; use simple text tabs with an animated underline indicator
+- Sticky with a subtle frosted-glass backdrop
+- Icons removed — text-only for a cleaner editorial feel
 
-**3. Create `src/components/CityWheel.tsx`**
-- Uses `@react-three/fiber` Canvas with a circular arrangement of 8 city cards
-- Each card is a 3D plane with the city photo as texture, city name as text overlay
-- Cards are positioned in a circle (using sin/cos for x/z positions)
-- Auto-rotates slowly; user can click left/right arrows or drag to spin
-- Selected card scales up and moves slightly forward
-- Smooth spring animations for rotation transitions using `useFrame`
+**Posts Tab — Magazine grid**
+- First post is a large featured card spanning full width with overlay text (caption + stats)
+- Remaining posts in a 2-column masonry-like grid with hover reveal of caption
+- No visible card borders — images bleed edge to edge with subtle rounded corners
 
-**4. Create `src/components/CityCard3D.tsx`**
-- Individual 3D card component: textured plane with rounded corners effect
-- Gradient overlay at bottom with city name and event count
-- Glow/bloom effect on the selected card using emissive material
-- Hover effect: slight scale up
+**Albums Tab — Cinematic locked teaser**
+- Full-width blurred mosaic background
+- Large centered lock icon with dramatic text: "Exclusive content. Download Toliv."
+- Minimal, bold CTA button
 
-**5. Update `src/components/ChileMap.tsx`**
-- Delete this component (no longer needed)
+**Shop Tab — Editorial product showcase**
+- Alternating layout: first item full-width hero card, then 2-col grid
+- Product name in bold overlay text on the image
+- "Coming Soon" items get a desaturated/grayscale treatment with overlay badge
 
-**6. Keep existing**
-- Route, translations, city data array, and images all stay the same
+**Events Tab — Timeline style**
+- Vertical timeline with date on the left, event card on the right
+- Each card has a tall flyer image with venue info overlaid at the bottom
+- Connected by a subtle vertical line with dot markers
 
-### Interaction Flow
-- Page loads → wheel auto-rotates slowly
-- Click a card or use arrow buttons → wheel snaps to that city
-- Selected city info appears below/overlaid with event count and CTA
-- On mobile: wheel is touch-draggable, slightly smaller canvas
+**Followers Tab — Compact horizontal cards**
+- Single column list with larger avatars, name, and follow button aligned right
+- Cleaner, more spacious than current 2-col grid
 
-### Fallback
-- If 3D performance is a concern, a CSS 3D transform carousel (using `perspective` and `rotateY`) is a lighter alternative that still gives the spinning wheel effect without Three.js. This would be simpler and more performant.
+**Info Tab — Editorial sections**
+- Large pull-quote style bio text (larger font, italic or light weight)
+- Genre displayed as a large styled tag
+- Social icons in a row with hover glow effects
+- No stats repeat (already visible in hero)
+
+### Files Modified
+- `src/pages/ProfilePage.tsx` — complete UI rewrite of all tab components and hero
+- No data changes needed — mock data stays the same
+
+### What stays the same
+- Route structure, data interfaces, language support, tab IDs
+- Mock data from `mockProfiles.ts`
+- Follow toggle logic
 
