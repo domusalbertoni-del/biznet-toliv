@@ -92,7 +92,10 @@ const ArtistsPage = () => {
                     {artist.series}
                   </span>
                 )}
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight">{artist.name}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight inline-flex items-center gap-2">
+                  {artist.name}
+                  {artist.verified && <BadgeCheck className="w-5 h-5 text-primary fill-primary/20" />}
+                </h3>
                 <p className="text-sm text-muted-foreground mt-1">
                   {formatFollowers(artist.followers)} {lang === "es" ? "seguidores" : "followers"}
                 </p>
