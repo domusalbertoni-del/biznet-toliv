@@ -70,10 +70,10 @@ const ProfilePage = () => {
           <Share2 className="w-5 h-5" />
         </button>
 
-        {/* Hero content pinned to bottom */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 z-10">
+        {/* Hero content pinned to bottom — centered */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 z-10 flex flex-col items-center text-center">
           {/* Avatar */}
-          <div className="relative w-36 h-36 md:w-44 md:h-44 mb-5">
+          <div className="relative w-32 h-32 md:w-40 md:h-40 mb-5">
             <div className="absolute -inset-2 rounded-full bg-primary/30 blur-xl animate-pulse" />
             <div className="w-full h-full rounded-full overflow-hidden ring-[3px] ring-primary/50 relative">
               <img src={profile.avatar} alt={profile.name} className="w-full h-full object-cover" />
@@ -87,7 +87,7 @@ const ProfilePage = () => {
 
           {/* Genre tag */}
           {profile.series && (
-            <span className="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+            <span className="inline-flex items-center gap-1.5 mt-4 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
               <Music className="w-3 h-3" />
               {profile.series}
             </span>
@@ -127,16 +127,16 @@ const ProfilePage = () => {
       </div>
 
       {/* ── About Section (Shotgun-inspired) ── */}
-      <div className="px-6 py-8 max-w-3xl mx-auto">
+      <div className="px-6 py-10 max-w-3xl mx-auto flex flex-col items-center text-center">
         {/* Bio */}
         {profile.bio && (
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
             {profile.bio}
           </p>
         )}
 
         {/* Meta row: country + first event */}
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-5">
           {profile.country && (
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
               <Globe className="w-3.5 h-3.5" />
@@ -153,7 +153,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Social links row */}
-        <div className="flex items-center gap-3 mt-5">
+        <div className="flex items-center justify-center gap-3 mt-5">
           {[
             { Icon: Instagram, label: "Instagram" },
             { Icon: Twitter, label: "X" },
@@ -173,7 +173,7 @@ const ProfilePage = () => {
 
       {/* ── Underline Tabs ── */}
       <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-xl border-b border-border/30">
-        <div className="flex overflow-x-auto gap-1 px-6 no-scrollbar scrollbar-hide">
+        <div className="flex overflow-x-auto justify-center gap-1 px-6 no-scrollbar scrollbar-hide max-w-3xl mx-auto">
           {tabs.map((tab) => {
             const isActive = activeTab === tab;
             return (
