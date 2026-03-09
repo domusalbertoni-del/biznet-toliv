@@ -408,18 +408,6 @@ const FollowersTab = ({ followers, lang }: { followers: MockFollower[]; lang: st
    ═══════════════════════════════════════════ */
 const InfoTab = ({ profile, lang }: { profile: { bio?: string; series?: string }; lang: string }) => (
   <div className="max-w-lg mx-auto space-y-10">
-    {/* Pull-quote bio */}
-    {profile.bio && (
-      <div>
-        <h3 className="text-[11px] font-bold text-muted-foreground tracking-widest uppercase mb-4">
-          {lang === "es" ? "Sobre" : "About"}
-        </h3>
-        <p className="text-xl md:text-2xl font-light leading-relaxed italic text-foreground/80">
-          "{profile.bio}"
-        </p>
-      </div>
-    )}
-
     {/* Genre */}
     {profile.series && (
       <div>
@@ -433,18 +421,20 @@ const InfoTab = ({ profile, lang }: { profile: { bio?: string; series?: string }
       </div>
     )}
 
-    {/* Social */}
+    {/* Stats summary */}
     <div>
       <h3 className="text-[11px] font-bold text-muted-foreground tracking-widest uppercase mb-4">
-        {lang === "es" ? "Redes Sociales" : "Social"}
+        {lang === "es" ? "Estadísticas" : "Stats"}
       </h3>
-      <div className="flex gap-3">
-        {[Instagram, Twitter, Music].map((Icon, i) => (
-          <div
-            key={i}
-            className="w-12 h-12 rounded-full bg-secondary/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer"
-          >
-            <Icon className="w-5 h-5" />
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { value: formatFollowers(profile.followers), label: lang === "es" ? "Seguidores" : "Followers" },
+          { value: profile.posts, label: "Posts" },
+          { value: profile.albums, label: "Albums" },
+        ].map((s) => (
+          <div key={s.label} className="text-center py-4 rounded-xl bg-secondary/40 border border-border/20">
+            <p className="font-bold text-lg text-primary">{s.value}</p>
+            <p className="text-[10px] text-muted-foreground mt-1">{s.label}</p>
           </div>
         ))}
       </div>
