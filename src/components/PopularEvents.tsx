@@ -95,9 +95,9 @@ const PopularEvents = () => {
         </div>
 
         <div className={`flex flex-col items-center gap-3 mt-10 reveal ${isVisible ? 'visible' : ''} reveal-delay-4`}>
-          <a href="#" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-primary text-primary-foreground text-sm font-bold hover:opacity-90 transition-opacity">
+          <Link to="/explore" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-primary text-primary-foreground text-sm font-bold hover:opacity-90 transition-opacity">
             {t.seeMoreEvents}
-          </a>
+          </Link>
           <Link to="/cities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
             {t.viewAllCities}
           </Link>
