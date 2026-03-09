@@ -70,10 +70,10 @@ const ProfilePage = () => {
           <Share2 className="w-5 h-5" />
         </button>
 
-        {/* Hero content pinned to bottom */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 z-10">
+        {/* Hero content pinned to bottom — centered */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 z-10 flex flex-col items-center text-center">
           {/* Avatar */}
-          <div className="relative w-36 h-36 md:w-44 md:h-44 mb-5">
+          <div className="relative w-32 h-32 md:w-40 md:h-40 mb-5">
             <div className="absolute -inset-2 rounded-full bg-primary/30 blur-xl animate-pulse" />
             <div className="w-full h-full rounded-full overflow-hidden ring-[3px] ring-primary/50 relative">
               <img src={profile.avatar} alt={profile.name} className="w-full h-full object-cover" />
@@ -87,7 +87,7 @@ const ProfilePage = () => {
 
           {/* Genre tag */}
           {profile.series && (
-            <span className="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+            <span className="inline-flex items-center gap-1.5 mt-4 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
               <Music className="w-3 h-3" />
               {profile.series}
             </span>
