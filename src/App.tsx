@@ -7,6 +7,7 @@ import { LangProvider } from "@/contexts/LangContext";
 import Index from "./pages/Index";
 import ProfilePage from "./pages/ProfilePage";
 import CitiesPage from "./pages/CitiesPage";
+import ArtistsPage from "./pages/ArtistsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
