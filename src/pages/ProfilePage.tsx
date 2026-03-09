@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import {
   ArrowLeft, Lock, MapPin, Music, Share2, Instagram, Twitter, Heart,
-  Calendar, Globe,
+  Calendar, Globe, BadgeCheck,
 } from "lucide-react";
 import {
   getProfileById, formatFollowers,
@@ -81,8 +81,9 @@ const ProfilePage = () => {
           </div>
 
           {/* Name */}
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-none">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-none inline-flex items-center gap-2 justify-center">
             {profile.name}
+            {profile.verified && <BadgeCheck className="w-6 h-6 md:w-8 md:h-8 text-primary fill-primary/20" />}
           </h1>
 
           {/* Genre tag */}

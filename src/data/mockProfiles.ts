@@ -29,6 +29,7 @@ export interface ProfileData {
   bio?: string;
   country?: string;
   firstEventDate?: string;
+  verified?: boolean;
 }
 
 export interface MockPost {
@@ -96,14 +97,14 @@ export const mockFollowers: MockFollower[] = [
 
 export const artistProfiles: ProfileData[] = [
   { id: "lewis-somes", type: "artist", name: "Lewis Somes", avatar: lewisSomes, cover: event1, followers: 2340, posts: 18, albums: 3, series: "Música Urbana", bio: "Artista urbano emergente en la escena chilena.", country: "Chile", firstEventDate: "Marzo 2024" },
-  { id: "marcianeke", type: "artist", name: "Marcianeke", avatar: marcianeke, cover: event2, followers: 15120, posts: 42, albums: 5, series: "Música Urbana", bio: "Ícono del reggaetón chileno. Éxitos internacionales.", country: "Chile", firstEventDate: "Enero 2023" },
+  { id: "marcianeke", type: "artist", name: "Marcianeke", avatar: marcianeke, cover: event2, followers: 15120, posts: 42, albums: 5, series: "Música Urbana", bio: "Ícono del reggaetón chileno. Éxitos internacionales.", country: "Chile", firstEventDate: "Enero 2023", verified: true },
   { id: "dj-domus", type: "artist", name: "DJ Domus", avatar: djDomus, cover: event3, followers: 1890, posts: 9, albums: 2, series: "Música Electrónica", bio: "DJ y productor de música electrónica.", country: "Chile", firstEventDate: "Junio 2024" },
-  { id: "floyy-menor", type: "artist", name: "Floyy Menor", avatar: floyyMenor, cover: event1, followers: 8760, posts: 27, albums: 4, series: "Música Urbana", bio: "Artista urbano con flow único.", country: "Chile", firstEventDate: "Septiembre 2023" },
+  { id: "floyy-menor", type: "artist", name: "Floyy Menor", avatar: floyyMenor, cover: event1, followers: 8760, posts: 27, albums: 4, series: "Música Urbana", bio: "Artista urbano con flow único.", country: "Chile", firstEventDate: "Septiembre 2023", verified: true },
   { id: "loyaltty", type: "artist", name: "Loyaltty", avatar: loyaltty, cover: event3, followers: 6980, posts: 15, albums: 3, series: "Música Urbana", bio: "Cantante y compositora urbana.", country: "Chile", firstEventDate: "Abril 2024" },
-  { id: "cuartero", type: "artist", name: "Cuartero", avatar: cuartero, cover: event2, followers: 12200, posts: 31, albums: 6, series: "Música Electrónica", bio: "DJ y productor español de tech house y techno.", country: "España", firstEventDate: "Noviembre 2023" },
+  { id: "cuartero", type: "artist", name: "Cuartero", avatar: cuartero, cover: event2, followers: 12200, posts: 31, albums: 6, series: "Música Electrónica", bio: "DJ y productor español de tech house y techno.", country: "España", firstEventDate: "Noviembre 2023", verified: true },
   { id: "elias-deepman", type: "artist", name: "Elias Deepman", avatar: eliasDeepman, cover: event1, followers: 7500, posts: 56, albums: 8, series: "Música Electrónica", bio: "DJ y productor de deep house y techno melódico.", country: "Chile", firstEventDate: "Febrero 2023" },
-  { id: "cris-mj", type: "artist", name: "Cris MJ", avatar: crisMj, cover: event3, followers: 21000, posts: 34, albums: 5, series: "Música Urbana", bio: "Estrella del reggaetón chileno con hits virales.", country: "Chile", firstEventDate: "Agosto 2022" },
-  { id: "pablochill-e", type: "artist", name: "Pablo Chill-E", avatar: pabloChillE, cover: event2, followers: 18500, posts: 28, albums: 6, series: "Música Urbana", bio: "Pionero del trap chileno. Estilo único.", country: "Chile", firstEventDate: "Mayo 2022" },
+  { id: "cris-mj", type: "artist", name: "Cris MJ", avatar: crisMj, cover: event3, followers: 21000, posts: 34, albums: 5, series: "Música Urbana", bio: "Estrella del reggaetón chileno con hits virales.", country: "Chile", firstEventDate: "Agosto 2022", verified: true },
+  { id: "pablochill-e", type: "artist", name: "Pablo Chill-E", avatar: pabloChillE, cover: event2, followers: 18500, posts: 28, albums: 6, series: "Música Urbana", bio: "Pionero del trap chileno. Estilo único.", country: "Chile", firstEventDate: "Mayo 2022", verified: true },
   { id: "katteyes", type: "artist", name: "Katteyes", avatar: katteyes, cover: event1, followers: 3300, posts: 22, albums: 4, series: "Música Urbana", bio: "Cantante urbana emergente con voz potente.", country: "Chile", firstEventDate: "Julio 2024" },
 ];
 

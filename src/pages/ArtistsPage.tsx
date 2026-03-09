@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Music, Users } from "lucide-react";
+import { ArrowLeft, Music, Users, BadgeCheck } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 import { artistProfiles, formatFollowers } from "@/data/mockProfiles";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -92,7 +92,10 @@ const ArtistsPage = () => {
                     {artist.series}
                   </span>
                 )}
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight">{artist.name}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight inline-flex items-center gap-2">
+                  {artist.name}
+                  {artist.verified && <BadgeCheck className="w-5 h-5 text-primary fill-primary/20" />}
+                </h3>
                 <p className="text-sm text-muted-foreground mt-1">
                   {formatFollowers(artist.followers)} {lang === "es" ? "seguidores" : "followers"}
                 </p>
@@ -127,7 +130,10 @@ const ArtistsPage = () => {
                   />
                 </div>
               </div>
-              <h3 className="font-bold text-sm group-hover:text-primary transition-colors">{artist.name}</h3>
+              <h3 className="font-bold text-sm group-hover:text-primary transition-colors inline-flex items-center gap-1">
+                {artist.name}
+                {artist.verified && <BadgeCheck className="w-3.5 h-3.5 text-primary fill-primary/20" />}
+              </h3>
               {artist.series && (
                 <span className="inline-flex items-center gap-1 mt-1 text-[10px] text-muted-foreground">
                   <Music className="w-2.5 h-2.5" />

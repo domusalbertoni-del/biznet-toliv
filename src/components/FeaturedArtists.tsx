@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, BadgeCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LangContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -58,7 +58,10 @@ const FeaturedArtists = () => {
               <div className="relative w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden ring-2 ring-border group-hover:ring-primary transition-all group-hover:glow-primary">
                 <img src={profile.avatar} alt={profile.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
-              <p className="font-bold text-sm group-hover:text-primary transition-colors">{profile.name}</p>
+              <p className="font-bold text-sm group-hover:text-primary transition-colors inline-flex items-center gap-1">
+                {profile.name}
+                {profile.verified && <BadgeCheck className="w-3.5 h-3.5 text-primary fill-primary/20" />}
+              </p>
               <p className="text-xs text-muted-foreground">
                 {viewMode === "artists" ? profile.series : `${formatFollowers(profile.followers)} ${lang === "es" ? "seguidores" : "followers"}`}
               </p>
