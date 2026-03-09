@@ -153,7 +153,7 @@ const ProfilePage = () => {
         {activeTab === "posts" && <PostsTab posts={mockPosts} />}
         {activeTab === "albums" && <AlbumsTab lang={lang} />}
         {activeTab === "shop" && <ShopTab merch={mockMerch} lang={lang} />}
-        {activeTab === "eventos" && <EventsTab events={mockEvents} lang={lang} />}
+        {activeTab === "eventos" && <EventsTab events={mockEvents} />}
         {activeTab === "seguidores" && <FollowersTab followers={mockFollowers} lang={lang} />}
         {activeTab === "info" && <InfoTab profile={profile} lang={lang} />}
       </div>
