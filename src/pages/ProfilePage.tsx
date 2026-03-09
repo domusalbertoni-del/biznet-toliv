@@ -173,7 +173,7 @@ const ProfilePage = () => {
 
       {/* ── Underline Tabs ── */}
       <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-xl border-b border-border/30">
-        <div className="flex overflow-x-auto gap-1 px-6 no-scrollbar scrollbar-hide">
+        <div className="flex overflow-x-auto justify-center gap-1 px-6 no-scrollbar scrollbar-hide max-w-3xl mx-auto">
           {tabs.map((tab) => {
             const isActive = activeTab === tab;
             return (
