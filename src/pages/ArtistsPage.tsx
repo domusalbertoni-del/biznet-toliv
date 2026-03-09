@@ -130,7 +130,10 @@ const ArtistsPage = () => {
                   />
                 </div>
               </div>
-              <h3 className="font-bold text-sm group-hover:text-primary transition-colors">{artist.name}</h3>
+              <h3 className="font-bold text-sm group-hover:text-primary transition-colors inline-flex items-center gap-1">
+                {artist.name}
+                {artist.verified && <BadgeCheck className="w-3.5 h-3.5 text-primary fill-primary/20" />}
+              </h3>
               {artist.series && (
                 <span className="inline-flex items-center gap-1 mt-1 text-[10px] text-muted-foreground">
                   <Music className="w-2.5 h-2.5" />
