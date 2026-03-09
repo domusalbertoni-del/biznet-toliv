@@ -126,6 +126,51 @@ const ProfilePage = () => {
         </div>
       </div>
 
+      {/* ── About Section (Shotgun-inspired) ── */}
+      <div className="px-6 py-8 max-w-3xl mx-auto">
+        {/* Bio */}
+        {profile.bio && (
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            {profile.bio}
+          </p>
+        )}
+
+        {/* Meta row: country + first event */}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5">
+          {profile.country && (
+            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+              <Globe className="w-3.5 h-3.5" />
+              {profile.country}
+            </span>
+          )}
+          {profile.firstEventDate && (
+            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+              <Calendar className="w-3.5 h-3.5 text-primary" />
+              {lang === "es" ? "En Toliv desde" : "On Toliv since"}{" "}
+              <span className="text-foreground font-medium">{profile.firstEventDate}</span>
+            </span>
+          )}
+        </div>
+
+        {/* Social links row */}
+        <div className="flex items-center gap-3 mt-5">
+          {[
+            { Icon: Instagram, label: "Instagram" },
+            { Icon: Twitter, label: "X" },
+            { Icon: Music, label: "Spotify" },
+          ].map(({ Icon, label }) => (
+            <a
+              key={label}
+              href="#"
+              className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 cursor-pointer"
+              title={label}
+            >
+              <Icon className="w-4 h-4" />
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* ── Underline Tabs ── */}
       <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-xl border-b border-border/30">
         <div className="flex overflow-x-auto gap-1 px-6 no-scrollbar scrollbar-hide">
