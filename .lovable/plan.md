@@ -1,48 +1,53 @@
 
 
-## Plan: 3D Rotating City Wheel for Cities Page
+## Plan: Redesign Profile Pages for Artists & Events
 
-### Concept
-Replace the current map + cards layout with an immersive 3D rotating carousel/wheel. Each city is represented as a floating card with its photo, name, and event count, arranged in a circular formation that the user can spin by dragging or clicking arrows. The selected city card comes to the front, scales up, and glows.
+### Problem
+The current ProfilePage is very basic — flat cover + avatar + stats + empty tab content. It looks like a placeholder, not a nightlife/music app.
 
-### Technical Approach
+### New Design Vision
+An immersive, dark, concert-poster-inspired profile page with depth, blur effects, animated transitions, and rich mock content for each tab.
 
-**1. Install dependencies**
-- `@react-three/fiber@^8.18` and `three@^0.166` for 3D rendering
-- `@react-three/drei@^9.122.0` for helper utilities (Text, Image, etc.)
+### Changes
 
-**2. Rewrite `src/pages/CitiesPage.tsx`**
-- Remove the two-column map + cards layout
-- Replace with a full-width immersive section: header on top, 3D canvas below
-- The 3D canvas renders a circular carousel of city cards
-- Below the canvas (or overlaid): selected city info panel with name, event count, and a "View events" CTA
+**1. Redesign `src/pages/ProfilePage.tsx` — Hero Section**
+- Full-bleed cover image that extends taller (h-80 on mobile, h-96 on desktop) with a strong gradient fade to background
+- Parallax-like effect: cover image has subtle `object-position` shift on scroll
+- Avatar with a glowing ring (primary color pulsing glow) instead of plain ring
+- Name in larger bold text with a subtle text-gradient effect
+- Genre/series tag as a pill badge below the name
+- Stats displayed as glass-morphism cards (backdrop-blur, semi-transparent bg) in a horizontal row
+- Follow button with animated state transition (scale bounce on click)
 
-**3. Create `src/components/CityWheel.tsx`**
-- Uses `@react-three/fiber` Canvas with a circular arrangement of 8 city cards
-- Each card is a 3D plane with the city photo as texture, city name as text overlay
-- Cards are positioned in a circle (using sin/cos for x/z positions)
-- Auto-rotates slowly; user can click left/right arrows or drag to spin
-- Selected card scales up and moves slightly forward
-- Smooth spring animations for rotation transitions using `useFrame`
+**2. Redesign Tab Navigation**
+- Horizontal scrollable pill-style tabs instead of the current icon-column layout
+- Each tab is a rounded pill with icon + label inline
+- Active tab gets primary bg color with smooth sliding indicator animation
+- Sticky positioning so tabs stay visible on scroll
 
-**4. Create `src/components/CityCard3D.tsx`**
-- Individual 3D card component: textured plane with rounded corners effect
-- Gradient overlay at bottom with city name and event count
-- Glow/bloom effect on the selected card using emissive material
-- Hover effect: slight scale up
+**3. Rich Tab Content**
 
-**5. Update `src/components/ChileMap.tsx`**
-- Delete this component (no longer needed)
+- **Posts tab**: Mock feed with 3-4 post cards (image + caption + timestamp + likes). Cards have glassmorphic bg, rounded corners, hover glow.
+- **Albums tab**: Keep the lock/download CTA but redesign it — use a frosted glass card with a blurred album grid preview behind the lock overlay. More visually enticing.
+- **Shop tab**: Mock merch grid (2x2) with product cards showing placeholder images, price tags, "Coming soon" overlays.
+- **Events tab**: Mock upcoming event cards with date badges, venue name, and flyer thumbnails in a vertical list.
+- **Followers tab**: Mock follower avatars in a grid with names and follow-back buttons.
+- **Info tab**: Redesigned with sections — About, Genre, Social links (mock icons), and a stats summary.
 
-**6. Keep existing**
-- Route, translations, city data array, and images all stay the same
+**4. Add mock data to `src/data/mockProfiles.ts`**
+- Add `mockPosts`, `mockMerch`, `mockEvents` arrays with placeholder content using existing event images.
 
-### Interaction Flow
-- Page loads → wheel auto-rotates slowly
-- Click a card or use arrow buttons → wheel snaps to that city
-- Selected city info appears below/overlaid with event count and CTA
-- On mobile: wheel is touch-draggable, slightly smaller canvas
+**5. Animated transitions**
+- Tab content fades in/out with `animate-fade-in` on tab switch
+- Entrance animations on page load using the existing `reveal` utilities
 
-### Fallback
-- If 3D performance is a concern, a CSS 3D transform carousel (using `perspective` and `rotateY`) is a lighter alternative that still gives the spinning wheel effect without Three.js. This would be simpler and more performant.
+### Files Modified
+- `src/pages/ProfilePage.tsx` — full rewrite
+- `src/data/mockProfiles.ts` — add mock content arrays
+
+### What stays the same
+- Route structure (`/profile/:id`)
+- Profile data interface and existing profiles
+- Language context usage
+- FeaturedArtists component on the homepage (unchanged)
 
