@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Music, Users } from "lucide-react";
+import { ArrowLeft, Music, Users, BadgeCheck } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 import { artistProfiles, formatFollowers } from "@/data/mockProfiles";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
