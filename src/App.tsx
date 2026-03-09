@@ -8,6 +8,9 @@ import Index from "./pages/Index";
 import ProfilePage from "./pages/ProfilePage";
 import CitiesPage from "./pages/CitiesPage";
 import ArtistsPage from "./pages/ArtistsPage";
+import ExplorePage from "./pages/ExplorePage";
+import TicketsPage from "./pages/TicketsPage";
+import FavoritesPage from "./pages/FavoritesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
