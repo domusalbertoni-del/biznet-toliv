@@ -85,6 +85,18 @@ const translations = {
     citiesPageSubtitle: "Explore events across Chile. Select a city on the map or browse below.",
     eventsThisWeek: "events this week",
 
+    // Explore
+    exploreHeroTitle: "Find your next event",
+    exploreHeroSub: "Real events from toliv.com — parties, festivals, and more across Chile.",
+    exploreFeatured: "Featured this week",
+    exploreAll: "All events",
+
+    // Tickets
+    ticketsSubtitle: "Your tickets with QR codes to access events.",
+
+    // Favorites
+    favoritesSubtitle: "Your saved events and artists.",
+
     // Mobile nav
     home: "Home",
     search: "Search",
