@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import {
   ArrowLeft, Lock, MapPin, Music, Share2, Instagram, Twitter, Heart,
+  Calendar, Globe,
 } from "lucide-react";
 import {
   getProfileById, formatFollowers,
