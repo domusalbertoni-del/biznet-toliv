@@ -406,7 +406,7 @@ const FollowersTab = ({ followers, lang }: { followers: MockFollower[]; lang: st
 /* ═══════════════════════════════════════════
    Info — Editorial Sections
    ═══════════════════════════════════════════ */
-const InfoTab = ({ profile, lang }: { profile: { bio?: string; series?: string }; lang: string }) => (
+const InfoTab = ({ profile, lang }: { profile: { bio?: string; series?: string; followers: number; posts: number; albums: number }; lang: string }) => (
   <div className="max-w-lg mx-auto space-y-10">
     {/* Genre */}
     {profile.series && (
