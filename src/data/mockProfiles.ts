@@ -11,6 +11,10 @@ import katteyes from "@/assets/katteyes.jpg";
 import event1 from "@/assets/event-1.webp";
 import event2 from "@/assets/event-2.webp";
 import event3 from "@/assets/event-3.webp";
+import genesisFlyer from "@/assets/genesis-flyer.jpg";
+import mamisongaFlyer from "@/assets/mamisonga-flyer.jpg";
+import miercolesPo from "@/assets/miercoles-po-flyer.jpg";
+import club1Flyer from "@/assets/club-1-flyer.jpg";
 
 export interface ProfileData {
   id: string;
@@ -24,6 +28,69 @@ export interface ProfileData {
   series?: string;
   bio?: string;
 }
+
+export interface MockPost {
+  id: string;
+  image: string;
+  caption: string;
+  likes: number;
+  timeAgo: string;
+}
+
+export interface MockMerch {
+  id: string;
+  name: string;
+  price: string;
+  image: string;
+  comingSoon: boolean;
+}
+
+export interface MockEvent {
+  id: string;
+  name: string;
+  date: string;
+  venue: string;
+  flyer: string;
+}
+
+export interface MockFollower {
+  id: string;
+  name: string;
+  avatar: string;
+  isFollowing: boolean;
+}
+
+export const mockPosts: MockPost[] = [
+  { id: "p1", image: event1, caption: "Increíble noche 🔥 Gracias a todos los que vinieron", likes: 342, timeAgo: "2h" },
+  { id: "p2", image: event2, caption: "Nuevo track coming soon 🎵 Stay tuned", likes: 891, timeAgo: "1d" },
+  { id: "p3", image: event3, caption: "Backstage vibes ✨", likes: 567, timeAgo: "3d" },
+  { id: "p4", image: genesisFlyer, caption: "Este viernes nos vemos 🎉", likes: 1203, timeAgo: "5d" },
+];
+
+export const mockMerch: MockMerch[] = [
+  { id: "m1", name: "Hoodie Oficial", price: "$35.000", image: event1, comingSoon: false },
+  { id: "m2", name: "Polera Tour 2025", price: "$22.000", image: event2, comingSoon: false },
+  { id: "m3", name: "Gorra Edición Limitada", price: "$18.000", image: event3, comingSoon: true },
+  { id: "m4", name: "Poster Firmado", price: "$12.000", image: genesisFlyer, comingSoon: true },
+];
+
+export const mockEvents: MockEvent[] = [
+  { id: "e1", name: "Noche Eléctrica Vol. 3", date: "15 MAR", venue: "Club Subterráneo, Santiago", flyer: genesisFlyer },
+  { id: "e2", name: "Festival Urbano 2025", date: "22 MAR", venue: "Parque O'Higgins, Santiago", flyer: mamisongaFlyer },
+  { id: "e3", name: "Deep Sessions After", date: "29 MAR", venue: "The Underground, Valparaíso", flyer: miercolesPo },
+  { id: "e4", name: "Warehouse Rave", date: "05 ABR", venue: "Bodega Central, Santiago", flyer: club1Flyer },
+];
+
+export const mockFollowers: MockFollower[] = [
+  { id: "f1", name: "Camila Rojas", avatar: loyaltty, isFollowing: true },
+  { id: "f2", name: "Diego Muñoz", avatar: djDomus, isFollowing: false },
+  { id: "f3", name: "Valentina Silva", avatar: katteyes, isFollowing: true },
+  { id: "f4", name: "Matías López", avatar: eliasDeepman, isFollowing: false },
+  { id: "f5", name: "Sofía Contreras", avatar: loyaltty, isFollowing: true },
+  { id: "f6", name: "Tomás Herrera", avatar: cuartero, isFollowing: false },
+  { id: "f7", name: "Javiera Paz", avatar: katteyes, isFollowing: true },
+  { id: "f8", name: "Nicolás Vega", avatar: floyyMenor, isFollowing: false },
+];
 
 export const artistProfiles: ProfileData[] = [
   { id: "lewis-somes", type: "artist", name: "Lewis Somes", avatar: lewisSomes, cover: event1, followers: 2340, posts: 18, albums: 3, series: "Música Urbana", bio: "Artista urbano emergente en la escena chilena." },
