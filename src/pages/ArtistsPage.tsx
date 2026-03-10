@@ -30,13 +30,16 @@ const ArtistsPage = () => {
         <div className="absolute inset-0 hero-gradient-bg opacity-30" />
 
         {/* Nav */}
-        <div className="relative z-10 px-6 lg:px-12 pt-6">
+        <div className="relative z-10 px-6 lg:px-12 pt-6 flex items-center justify-between">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             {lang === "es" ? "Inicio" : "Home"}
+          </Link>
+          <Link to="/" className="focus:outline-none">
+            <img src={tolivLogo} alt="Toliv" className="h-8 object-contain" />
           </Link>
         </div>
 
