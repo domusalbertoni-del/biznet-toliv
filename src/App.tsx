@@ -5,12 +5,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LangProvider } from "@/contexts/LangContext";
 import Index from "./pages/Index";
-import ProfilePage from "./pages/ProfilePage";
-import CitiesPage from "./pages/CitiesPage";
-import ArtistsPage from "./pages/ArtistsPage";
-import ExplorePage from "./pages/ExplorePage";
-import TicketsPage from "./pages/TicketsPage";
-import FavoritesPage from "./pages/FavoritesPage";
+import EventsPage from "./pages/EventsPage";
+import EventDetailPage from "./pages/EventDetailPage";
+import NetworkPage from "./pages/NetworkPage";
+import MentorshipPage from "./pages/MentorshipPage";
+import MessagesPage from "./pages/MessagesPage";
+import BiznetProfilePage from "./pages/BiznetProfilePage";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,13 +26,14 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/profile/:id" element={<ProfilePage />} />
-            <Route path="/cities" element={<CitiesPage />} />
-            <Route path="/artists" element={<ArtistsPage />} />
-            <Route path="/explore" element={<ExplorePage />} />
-            <Route path="/tickets" element={<TicketsPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/events/:id" element={<EventDetailPage />} />
+            <Route path="/network" element={<NetworkPage />} />
+            <Route path="/mentorship" element={<MentorshipPage />} />
+            <Route path="/messages" element={<MessagesPage />} />
+            <Route path="/profile/:id" element={<BiznetProfilePage />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
