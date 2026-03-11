@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const BiznetNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -49,6 +51,13 @@ const BiznetNavbar = () => {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
           <Link
             to="/signin"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -93,6 +102,12 @@ const BiznetNavbar = () => {
                 </Link>
               ))}
               <div className="flex gap-3 mt-4">
+                <button
+                  onClick={toggleTheme}
+                  className="px-4 py-2.5 rounded-lg border border-border text-sm hover:bg-secondary transition-colors"
+                >
+                  {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                </button>
                 <Link
                   to="/signin"
                   className="flex-1 text-center px-4 py-2.5 rounded-lg border border-border text-sm hover:bg-secondary transition-colors"
