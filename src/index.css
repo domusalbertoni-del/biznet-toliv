@@ -132,8 +132,8 @@
 
   .mesh-gradient {
     background: 
-      radial-gradient(ellipse 80% 60% at 20% 40%, hsl(217 91% 60% / 0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 80% at 80% 20%, hsl(250 80% 55% / 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 60% at 20% 40%, hsl(15 82% 55% / 0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 80% 20%, hsl(30 90% 55% / 0.08) 0%, transparent 70%),
       radial-gradient(ellipse 70% 50% at 60% 80%, hsl(38 92% 60% / 0.06) 0%, transparent 70%);
   }
 
