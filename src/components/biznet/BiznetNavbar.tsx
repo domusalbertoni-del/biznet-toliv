@@ -102,6 +102,12 @@ const BiznetNavbar = () => {
                 </Link>
               ))}
               <div className="flex gap-3 mt-4">
+                <button
+                  onClick={toggleTheme}
+                  className="px-4 py-2.5 rounded-lg border border-border text-sm hover:bg-secondary transition-colors"
+                >
+                  {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                </button>
                 <Link
                   to="/signin"
                   className="flex-1 text-center px-4 py-2.5 rounded-lg border border-border text-sm hover:bg-secondary transition-colors"
