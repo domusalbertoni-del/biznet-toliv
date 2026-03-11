@@ -1,25 +1,27 @@
-import Navbar from "@/components/Navbar";
-import MobileBottomNav from "@/components/MobileBottomNav";
-import HeroSection from "@/components/HeroSection";
-import PopularEvents from "@/components/PopularEvents";
-import FeaturedArtists from "@/components/FeaturedArtists";
-import AppFeatures from "@/components/AppFeatures";
-import OrganizerCTA from "@/components/OrganizerCTA";
-import Footer from "@/components/Footer";
+import BiznetNavbar from "@/components/biznet/BiznetNavbar";
+import HeroSection from "@/components/biznet/HeroSection";
+import FeaturedEvents from "@/components/biznet/FeaturedEvents";
+import HowItWorks from "@/components/biznet/HowItWorks";
+import MentorshipSpotlight from "@/components/biznet/MentorshipSpotlight";
+import StatsBar from "@/components/biznet/StatsBar";
+import Testimonials from "@/components/biznet/Testimonials";
+import CTASection from "@/components/biznet/CTASection";
+import BiznetFooter from "@/components/biznet/BiznetFooter";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <main className="pt-14 pb-16 md:pb-0">
+      <BiznetNavbar />
+      <main>
         <HeroSection />
-        <PopularEvents />
-        <FeaturedArtists />
-        <AppFeatures />
-        <OrganizerCTA />
-        <Footer />
+        <FeaturedEvents />
+        <HowItWorks />
+        <MentorshipSpotlight />
+        <StatsBar />
+        <Testimonials />
+        <CTASection />
+        <BiznetFooter />
       </main>
-      <MobileBottomNav />
     </div>
   );
 };
