@@ -7,6 +7,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 const BiznetNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
