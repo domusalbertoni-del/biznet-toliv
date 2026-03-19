@@ -1,63 +1,51 @@
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import HeroCube from "./HeroCube";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden noise-overlay">
-      {/* Warm gradient background */}
-      <div className="absolute inset-0 mesh-gradient" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/20 to-background/80" />
+    <section className="relative min-h-screen flex items-end overflow-hidden">
+      {/* Background gradient — warm cream to warm grey like speedrun */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(30,25%,93%)] via-[hsl(25,15%,78%)] to-[hsl(20,8%,55%)]" />
+      <div className="dark:hidden absolute inset-0" />
+      <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-[hsl(0,0%,8%)] via-[hsl(0,0%,15%)] to-[hsl(0,0%,25%)]" />
 
-      {/* Abstract geometric element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.06]">
-        <div className="w-full h-full rounded-full border border-foreground/20" />
-        <div className="absolute inset-12 rounded-full border border-foreground/15" />
-        <div className="absolute inset-24 rounded-full border border-foreground/10" />
-        <div className="absolute inset-36 rounded-full border border-foreground/5" />
+      {/* 3D Cube */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px]">
+          <Suspense fallback={null}>
+            <HeroCube />
+          </Suspense>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pb-24 md:pb-32 pt-40">
+      {/* Content overlay */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
-          {/* Eyebrow */}
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6">
-            Building the future of enterprise AI
+          <p className="text-[11px] font-semibold tracking-[0.35em] uppercase text-foreground/60 mb-5">
+            Build the future with AI
           </p>
 
-          {/* Headline */}
-          <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] mb-8 max-w-4xl">
-            Intelligence that
+          <h1 className="font-display font-bold text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-tight mb-8 max-w-3xl">
+            We power the next
             <br />
-            moves your
-            <br />
-            business forward.
+            generation of AI.
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-muted-foreground text-lg md:text-xl max-w-xl mb-12 leading-relaxed">
-            We build AI systems that understand your operations, automate complex workflows, and unlock insights at scale.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-start gap-4">
-            <Link
-              to="/signup"
-              className="group px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-sm tracking-wider uppercase hover:opacity-90 transition-all flex items-center gap-3"
-            >
-              Request a Demo
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link
-              to="/solutions"
-              className="px-8 py-4 rounded-full border border-border text-foreground font-medium text-sm tracking-wider uppercase hover:bg-secondary transition-all"
-            >
-              Explore Solutions
-            </Link>
-          </div>
+          <Link
+            to="/signup"
+            className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-background/80 backdrop-blur-sm text-foreground text-sm font-semibold tracking-wider uppercase hover:bg-background transition-all border border-border/50"
+          >
+            <span className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-300 via-pink-200 to-amber-200 inline-block" />
+            Get Started
+            <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+          </Link>
         </motion.div>
       </div>
     </section>
