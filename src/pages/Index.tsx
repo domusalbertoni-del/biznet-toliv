@@ -1,10 +1,12 @@
 import BiznetNavbar from "@/components/biznet/BiznetNavbar";
 import HeroSection from "@/components/biznet/HeroSection";
-import FeaturedEvents from "@/components/biznet/FeaturedEvents";
-import HowItWorks from "@/components/biznet/HowItWorks";
-import StatsBar from "@/components/biznet/StatsBar";
+import ProgramSection from "@/components/biznet/ProgramSection";
+import PerksSection from "@/components/biznet/PerksSection";
+import GlobalSection from "@/components/biznet/GlobalSection";
+import SpeakersSection from "@/components/biznet/SpeakersSection";
 import Testimonials from "@/components/biznet/Testimonials";
-import CTASection from "@/components/biznet/CTASection";
+import PortfolioSection from "@/components/biznet/PortfolioSection";
+import FAQSection from "@/components/biznet/FAQSection";
 import BiznetFooter from "@/components/biznet/BiznetFooter";
 
 const Index = () => {
@@ -13,13 +15,15 @@ const Index = () => {
       <BiznetNavbar />
       <main>
         <HeroSection />
-        <StatsBar />
-        <HowItWorks />
-        <FeaturedEvents />
+        <ProgramSection />
+        <PerksSection />
+        <GlobalSection />
+        <SpeakersSection />
         <Testimonials />
-        <CTASection />
-        <BiznetFooter />
+        <PortfolioSection />
+        <FAQSection />
       </main>
+      <BiznetFooter />
     </div>
   );
 };
