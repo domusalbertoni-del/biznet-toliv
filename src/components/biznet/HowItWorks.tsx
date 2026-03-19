@@ -1,51 +1,54 @@
 import { motion } from "framer-motion";
-import { Calendar, Users, Compass } from "lucide-react";
+import { Cpu, BarChart3, Zap, Shield } from "lucide-react";
 
-const pillars = [
+const capabilities = [
   {
-    icon: Calendar,
-    title: "Discover Events",
-    description: "Browse curated corporate events, conferences, and workshops. Get your tickets in seconds.",
+    icon: Cpu,
+    title: "Custom AI Models",
+    description: "Purpose-built models trained on your data, designed for your specific industry and use cases.",
   },
   {
-    icon: Users,
-    title: "Network & Chat",
-    description: "See who's attending. Connect before, during, and after the event. Build real relationships.",
+    icon: BarChart3,
+    title: "Predictive Analytics",
+    description: "Turn raw data into actionable forecasts. Anticipate market shifts before they happen.",
   },
   {
-    icon: Compass,
-    title: "Find a Mentor",
-    description: "Students and professionals can browse mentors by industry and expertise. Request 1-on-1 guidance.",
+    icon: Zap,
+    title: "Workflow Automation",
+    description: "Automate complex multi-step processes with intelligent agents that learn and adapt.",
+  },
+  {
+    icon: Shield,
+    title: "Enterprise Security",
+    description: "SOC 2 Type II compliant. Your data never leaves your infrastructure. Zero-trust by default.",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 md:py-28 px-4 md:px-8 max-w-7xl mx-auto">
-      <div className="text-center mb-14">
-        <h2 className="font-display font-bold text-2xl md:text-3xl tracking-tight mb-3">
-          How It Works
-        </h2>
-        <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-          Three pillars that make Biznet.events the platform for ambitious professionals.
+    <section className="py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
+      <div className="mb-16">
+        <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-4">
+          Our Capabilities
         </p>
+        <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tight max-w-2xl leading-tight">
+          AI infrastructure built for the enterprise.
+        </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {pillars.map((p, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden">
+        {capabilities.map((p, i) => (
           <motion.div
             key={p.title}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: i * 0.15, duration: 0.5 }}
-            className="glass rounded-xl p-8 text-center card-hover"
+            transition={{ delay: i * 0.1, duration: 0.5 }}
+            className="bg-background p-10 md:p-14 group hover:bg-secondary/50 transition-colors"
           >
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 mb-6">
-              <p.icon className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-display font-semibold text-lg mb-3">{p.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
+            <p.icon className="w-8 h-8 text-foreground mb-6 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
+            <h3 className="font-display font-semibold text-xl mb-3">{p.title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">{p.description}</p>
           </motion.div>
         ))}
       </div>

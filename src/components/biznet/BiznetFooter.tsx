@@ -2,28 +2,28 @@ import { Link } from "react-router-dom";
 
 const columns = [
   {
-    title: "Platform",
+    title: "Product",
     links: [
-      { label: "Events", href: "/events" },
-      { label: "Network", href: "/network" },
-      { label: "Mentorship", href: "/mentorship" },
-      { label: "Messages", href: "/messages" },
+      { label: "Solutions", href: "/solutions" },
+      { label: "Research", href: "/research" },
+      { label: "Case Studies", href: "#" },
+      { label: "Pricing", href: "#" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#" },
-      { label: "Careers", href: "#" },
+      { label: "About", href: "/company" },
+      { label: "Careers", href: "/careers" },
       { label: "Blog", href: "#" },
       { label: "Press", href: "#" },
     ],
   },
   {
-    title: "Support",
+    title: "Resources",
     links: [
-      { label: "Help Center", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "Documentation", href: "#" },
+      { label: "API Reference", href: "#" },
       { label: "Privacy", href: "#" },
       { label: "Terms", href: "#" },
     ],
@@ -37,22 +37,21 @@ const socials = [
 
 const BiznetFooter = () => {
   return (
-    <footer className="border-t border-border/50 pt-16 pb-8 px-4 md:px-8 max-w-7xl mx-auto">
+    <footer className="border-t border-border pt-16 pb-8 px-4 md:px-8 max-w-7xl mx-auto">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
-        {/* Brand */}
         <div className="col-span-2 md:col-span-1">
           <Link to="/" className="font-display font-bold text-lg tracking-tight">
-            Biznet<span className="text-primary">.events</span>
+            biznet<span className="text-muted-foreground font-medium text-sm ml-1">/ai</span>
           </Link>
           <p className="text-xs text-muted-foreground mt-3 leading-relaxed max-w-[200px]">
-            The professional networking platform built around events and mentorship.
+            Enterprise AI infrastructure that transforms how businesses operate.
           </p>
           <div className="flex gap-3 mt-5">
             {socials.map((s) => (
               <a
                 key={s.label}
                 href="#"
-                className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d={s.path} />
@@ -64,7 +63,7 @@ const BiznetFooter = () => {
 
         {columns.map((col) => (
           <div key={col.title}>
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
               {col.title}
             </p>
             <div className="flex flex-col gap-2.5">
@@ -82,9 +81,9 @@ const BiznetFooter = () => {
         ))}
       </div>
 
-      <div className="border-t border-border/50 pt-6 text-center">
+      <div className="border-t border-border pt-6 text-center">
         <p className="text-xs text-muted-foreground">
-          © 2026 Biznet.events. All rights reserved.
+          © 2026 Biznet AI. All rights reserved.
         </p>
       </div>
     </footer>

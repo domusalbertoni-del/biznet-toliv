@@ -6,25 +6,26 @@ const CTASection = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
-      {/* Gradient bg */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-background to-background" />
-      <div className="absolute inset-0 mesh-gradient opacity-40" />
+    <section className="relative py-24 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-primary" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 max-w-2xl mx-auto px-4 md:px-8 text-center"
+        className="relative z-10 max-w-3xl mx-auto px-4 md:px-8 text-center"
       >
-        <h2 className="font-display font-bold text-2xl md:text-4xl tracking-tight mb-4">
-          Ready to level up
+        <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/60 mb-6">
+          Get started
+        </p>
+        <h2 className="font-display font-bold text-3xl md:text-5xl tracking-tight mb-6 text-primary-foreground">
+          Ready to bring AI
           <br />
-          your network?
+          into your workflow?
         </h2>
-        <p className="text-muted-foreground mb-10 max-w-md mx-auto">
-          Join Biznet.events and start connecting with professionals who share your ambition.
+        <p className="text-primary-foreground/70 mb-12 max-w-md mx-auto">
+          Talk to our team about how Biznet AI can transform your operations.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">
@@ -33,10 +34,10 @@ const CTASection = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
-            className="flex-1 w-full px-4 py-3 rounded-lg bg-secondary border border-border text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-primary/50 transition-colors"
+            className="flex-1 w-full px-5 py-3.5 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 text-sm text-primary-foreground placeholder:text-primary-foreground/40 outline-none focus:border-primary-foreground/40 transition-colors"
           />
-          <button className="w-full sm:w-auto px-6 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all glow-blue flex items-center justify-center gap-2">
-            Join Now
+          <button className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-primary-foreground text-primary text-sm font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 tracking-wider uppercase">
+            Get in Touch
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
