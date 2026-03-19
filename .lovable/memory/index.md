@@ -1,13 +1,14 @@
-Design system and branding for Biznet.events professional networking platform.
+Design system for Biznet AI — corporate AI company website.
 
-- Fonts: Sora (display/headings), DM Sans (body)
-- Primary: Warm orange-coral hsl(15 82% 55%) — inspired by magic-shot-clone.lovable.app
-- Accent: Amber hsl(38 92% 60%) — #F59E0B (mentorship features)
-- Background: Deep black hsl(0 0% 4%)
-- Glass effects: .glass, .glass-strong classes
-- Glow effects: .glow-blue, .glow-amber classes
-- Cards: .card-hover for lift animation
-- Mesh gradient: .mesh-gradient for hero backgrounds
+- Fonts: Space Grotesk (display/headings), Inter (body)
+- Primary: Near-black hsl(0 0% 8%) on warm cream background
+- Background: Warm cream hsl(30 25% 95%) (light), deep black hsl(0 0% 4%) (dark)
+- Accent: Warm beige hsl(30 20% 88%)
+- Design vibe: Editorial, minimal, warm — inspired by speedrun.a16z.com
+- Buttons: Rounded-full (pill shape), uppercase tracking-wider
+- Typography: Large bold headlines, uppercase eyebrow labels with tracking-[0.3em]
+- Glass effects: .glass, .glass-strong (warm-toned)
+- Cards: Border-based, hover lift with .card-hover
+- No mentorship system — removed entirely
 - All components in src/components/biznet/
-- Mock data in src/data/biznetData.ts
 - Old Toliv components kept in src/components/ for asset reuse
