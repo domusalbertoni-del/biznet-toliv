@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { stats } from "@/data/biznetData";
+
+const stats = [
+  { label: "Enterprise Clients", value: 200, suffix: "+" },
+  { label: "Models Deployed", value: 1500, suffix: "+" },
+  { label: "Data Points Processed", value: 12, suffix: "B+" },
+  { label: "Uptime SLA", value: 99, suffix: ".9%" },
+];
 
 const AnimatedNumber = ({ target, suffix }: { target: number; suffix?: string }) => {
   const [val, setVal] = useState(0);
@@ -32,21 +38,20 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix?: string })
   }, [target]);
 
   return (
-    <span ref={ref} className="font-display font-bold text-3xl md:text-4xl">
+    <span ref={ref} className="font-display font-bold text-4xl md:text-5xl tracking-tight">
       {val.toLocaleString()}{suffix && val > 0 ? suffix : ""}
-      {!suffix && val > 0 ? "+" : ""}
     </span>
   );
 };
 
 const StatsBar = () => {
   return (
-    <section className="py-16 bg-secondary/50 border-y border-border/50">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <section className="py-20 border-y border-border">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
         {stats.map((s) => (
           <div key={s.label}>
             <AnimatedNumber target={s.value} suffix={s.suffix} />
-            <p className="text-muted-foreground text-xs uppercase tracking-widest mt-2 font-medium">
+            <p className="text-muted-foreground text-xs uppercase tracking-[0.2em] mt-3 font-medium">
               {s.label}
             </p>
           </div>

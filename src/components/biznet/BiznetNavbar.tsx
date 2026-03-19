@@ -16,10 +16,10 @@ const BiznetNavbar = () => {
   }, []);
 
   const links = [
-    { label: "Events", href: "/events" },
-    { label: "Network", href: "/network" },
-    { label: "Mentorship", href: "/mentorship" },
-    { label: "Messages", href: "/messages" },
+    { label: "SOLUTIONS", href: "/solutions" },
+    { label: "RESEARCH", href: "/research" },
+    { label: "COMPANY", href: "/company" },
+    { label: "CAREERS", href: "/careers" },
   ];
 
   return (
@@ -31,25 +31,23 @@ const BiznetNavbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-1 font-display font-bold text-xl tracking-tight">
-          Biznet<span className="text-primary">.events</span>
+        <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl tracking-tight">
+          <span className="text-foreground">biznet</span>
+          <span className="text-muted-foreground font-medium text-sm">/ai</span>
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <Link
               key={l.href}
               to={l.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors tracking-widest uppercase"
             >
               {l.label}
             </Link>
           ))}
         </div>
 
-        {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={toggleTheme}
@@ -60,19 +58,18 @@ const BiznetNavbar = () => {
           </button>
           <Link
             to="/signin"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors tracking-widest uppercase"
           >
-            Sign In
+            LOG IN
           </Link>
           <Link
             to="/signup"
-            className="px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all glow-blue"
+            className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-xs font-semibold tracking-wider uppercase hover:opacity-90 transition-all"
           >
             Get Started
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className="md:hidden p-2 text-muted-foreground hover:text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -81,7 +78,6 @@ const BiznetNavbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -95,7 +91,7 @@ const BiznetNavbar = () => {
                 <Link
                   key={l.href}
                   to={l.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+                  className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors tracking-widest uppercase py-1"
                   onClick={() => setMobileOpen(false)}
                 >
                   {l.label}
@@ -110,14 +106,14 @@ const BiznetNavbar = () => {
                 </button>
                 <Link
                   to="/signin"
-                  className="flex-1 text-center px-4 py-2.5 rounded-lg border border-border text-sm hover:bg-secondary transition-colors"
+                  className="flex-1 text-center px-4 py-2.5 rounded-lg border border-border text-xs font-medium uppercase tracking-wider hover:bg-secondary transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Sign In
+                  Log In
                 </Link>
                 <Link
                   to="/signup"
-                  className="flex-1 text-center px-4 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold"
+                  className="flex-1 text-center px-4 py-2.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-wider"
                   onClick={() => setMobileOpen(false)}
                 >
                   Get Started
