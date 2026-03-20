@@ -103,6 +103,7 @@ const HeroSection = () => {
       >
         <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] flex items-center justify-center">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
