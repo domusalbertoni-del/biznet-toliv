@@ -4,7 +4,7 @@ const BiznetFooter = () => {
   return (
     <footer className="border-t border-border py-8 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <Link to="/" className="font-display font-black text-lg tracking-tight italic">
+        <Link to="/" className="text-lg tracking-tight" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontStyle: 'italic' }}>
           hypr<span className="text-muted-foreground">.biz</span>
         </Link>
         <div className="flex items-center gap-6">
