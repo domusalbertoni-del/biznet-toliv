@@ -25,6 +25,7 @@ const HeroSection = () => {
             muted
             playsInline
             className="w-full h-full object-contain"
+            style={isDark ? { filter: "invert(1)" } : undefined}
             src="/videos/hero-cube.mp4"
           />
         </div>
