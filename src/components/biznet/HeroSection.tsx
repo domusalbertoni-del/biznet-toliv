@@ -1,23 +1,26 @@
-import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import HeroCube from "./HeroCube";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
-      {/* Background gradient — warm cream to warm grey like speedrun */}
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(30,25%,93%)] via-[hsl(25,15%,78%)] to-[hsl(20,8%,55%)]" />
       <div className="dark:hidden absolute inset-0" />
       <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-[hsl(0,0%,8%)] via-[hsl(0,0%,15%)] to-[hsl(0,0%,25%)]" />
 
-      {/* 3D Cube */}
+      {/* Video cube */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px]">
-          <Suspense fallback={null}>
-            <HeroCube />
-          </Suspense>
+        <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] flex items-center justify-center">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-contain"
+            src="/videos/hero-cube.mp4"
+          />
         </div>
       </div>
 
