@@ -28,7 +28,19 @@
 </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="fallback" style="display:flex;min-height:100vh;align-items:center;justify-content:center;font-family:sans-serif;background:#0a0a0f;color:#fff;text-align:center;padding:40px">
+        <div>
+          <div style="font-size:32px;font-weight:900;margin-bottom:12px">HYPR.BIZ</div>
+          <div style="color:#888;font-size:14px">Loading...</div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.addEventListener('error', function(e) {
+        document.getElementById('fallback').innerHTML = '<div style="max-width:600px"><div style="font-size:24px;font-weight:900;margin-bottom:12px">HYPR.BIZ</div><div style="color:#ef4444;font-size:13px;background:#1a0000;padding:16px;border-radius:8px;text-align:left;word-break:break-all">Error: ' + e.message + '<br/>File: ' + e.filename + ':' + e.lineno + '</div></div>';
+      });
+    </script>
   </body>
 </html>
