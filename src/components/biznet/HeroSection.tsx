@@ -55,7 +55,7 @@ const useTextScramble = (text: string, delay = 300) => {
             });
             setResolvedCount(targetIdx + 1);
             wordIdx++;
-            setTimeout(resolveNext, 80);
+            setTimeout(resolveNext, 40);
           }
         }, 25);
       };
