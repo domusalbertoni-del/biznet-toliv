@@ -31,8 +31,12 @@ const BiznetNavbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-        <Link to="/" className="text-xl tracking-tight text-foreground uppercase" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontStyle: 'italic' }}>
-          HYPR<span className="text-muted-foreground">.BIZ</span>
+        <Link to="/" className="flex items-center gap-1.5 text-foreground not-italic" style={{ fontFamily: "'Moonwalk', sans-serif" }}>
+          <span className="text-xl tracking-tight">HYPRBIZ</span>
+          <svg className="w-3.5 h-3.5 -mt-2" viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 0C16 0 19.5 12.5 32 16C19.5 19.5 16 32 16 32C16 32 12.5 19.5 0 16C12.5 12.5 16 0 16 0Z" />
+          </svg>
+          <span className="text-[10px] text-muted-foreground tracking-[0.15em] ml-1">By Toliv</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
