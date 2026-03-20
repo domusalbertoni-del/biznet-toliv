@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const HeroSection = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background gradient */}
@@ -10,15 +14,18 @@ const HeroSection = () => {
       <div className="dark:hidden absolute inset-0" />
       <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-[hsl(0,0%,8%)] via-[hsl(0,0%,15%)] to-[hsl(0,0%,25%)]" />
 
-      {/* Video cube */}
-      <div className="absolute inset-0 flex items-center justify-center -translate-y-20 md:-translate-y-28">
+      <div
+        className="absolute inset-0 flex items-center justify-center -translate-y-20 md:-translate-y-28"
+        style={{ mixBlendMode: isDark ? "screen" : "multiply" }}
+      >
         <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] flex items-center justify-center">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-contain [mix-blend-mode:multiply] dark:[mix-blend-mode:screen]"
+            className="w-full h-full object-contain"
+            style={isDark ? { filter: "invert(1)" } : undefined}
             src="/videos/hero-cube.mp4"
           />
         </div>
