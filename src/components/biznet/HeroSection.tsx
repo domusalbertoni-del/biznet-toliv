@@ -1,11 +1,61 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useState, useEffect, useCallback } from "react";
+
+const ALPHABETS = "你好世界未来智能網絡事件АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯαβγδεζηθλμπσφψωアイウエオカキクケコ가나다라마바사아자차카타파하";
+
+const useTextScramble = (text: string, delay = 400) => {
+  const [display, setDisplay] = useState("");
+  const [done, setDone] = useState(false);
+
+  const scramble = useCallback(() => {
+    const chars = text.split("");
+    const total = chars.length;
+    let frame = 0;
+    const maxFrames = 28;
+
+    const interval = setInterval(() => {
+      frame++;
+      const progress = frame / maxFrames;
+
+      const result = chars.map((char, i) => {
+        if (char === " " || char === "\n") return char;
+        const charThreshold = i / total;
+        if (progress > charThreshold + 0.3) return char;
+        return ALPHABETS[Math.floor(Math.random() * ALPHABETS.length)];
+      });
+
+      setDisplay(result.join(""));
+
+      if (frame >= maxFrames) {
+        clearInterval(interval);
+        setDisplay(text);
+        setDone(true);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  useEffect(() => {
+    const initialScramble = Array.from({ length: text.length }, (_, i) =>
+      text[i] === " " ? " " : ALPHABETS[Math.floor(Math.random() * ALPHABETS.length)]
+    ).join("");
+    setDisplay(initialScramble);
+
+    const timer = setTimeout(scramble, delay);
+    return () => clearTimeout(timer);
+  }, [scramble, delay, text]);
+
+  return { display, done };
+};
 
 const HeroSection = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const { display, done } = useTextScramble("Impulse your business through networking events with AI.", 600);
 
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
@@ -44,9 +94,7 @@ const HeroSection = () => {
           </p>
 
           <h1 className="font-display font-bold text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[0.95] tracking-tight mb-8">
-            Impulse your business through
-            <br className="hidden md:block" />
-            {" "}networking events with AI.
+            {display}
           </h1>
 
           <Link
