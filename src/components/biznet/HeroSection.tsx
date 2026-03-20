@@ -18,8 +18,7 @@ const HeroSection = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-contain"
-            style={{ mixBlendMode: 'multiply' }}
+            className="w-full h-full object-contain [mix-blend-mode:multiply] dark:[mix-blend-mode:screen]"
             src="/videos/hero-cube.mp4"
           />
         </div>
