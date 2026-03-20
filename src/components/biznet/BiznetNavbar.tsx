@@ -31,8 +31,8 @@ const BiznetNavbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-        <Link to="/" className="text-xl tracking-tight text-foreground" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontStyle: 'italic' }}>
-          hypr<span className="text-muted-foreground">.biz</span>
+        <Link to="/" className="text-xl tracking-tight text-foreground uppercase" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontStyle: 'italic' }}>
+          HYPR<span className="text-muted-foreground">.BIZ</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

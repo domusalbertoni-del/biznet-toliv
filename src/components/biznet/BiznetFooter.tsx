@@ -4,8 +4,8 @@ const BiznetFooter = () => {
   return (
     <footer className="border-t border-border py-8 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <Link to="/" className="text-lg tracking-tight" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontStyle: 'italic' }}>
-          hypr<span className="text-muted-foreground">.biz</span>
+        <Link to="/" className="text-lg tracking-tight uppercase" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontStyle: 'italic' }}>
+          HYPR<span className="text-muted-foreground">.BIZ</span>
         </Link>
         <div className="flex items-center gap-6">
           {["Solutions", "Research", "Company", "Careers", "Privacy", "Terms"].map((link) => (
