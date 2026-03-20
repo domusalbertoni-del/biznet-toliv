@@ -57,7 +57,7 @@ const useTextScramble = (text: string, delay = 300) => {
             wordIdx++;
             setTimeout(resolveNext, 80);
           }
-        }, 40);
+        }, 25);
       };
 
       resolveNext();
