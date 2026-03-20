@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { DollarSign, Users, Cpu } from "lucide-react";
+import aiHumanTouch from "@/assets/ai-human-touch.jpg";
 
 const cards = [
   {
