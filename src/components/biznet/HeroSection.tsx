@@ -14,8 +14,10 @@ const HeroSection = () => {
       <div className="dark:hidden absolute inset-0" />
       <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-[hsl(0,0%,8%)] via-[hsl(0,0%,15%)] to-[hsl(0,0%,25%)]" />
 
-      {/* Video cube */}
-      <div className="absolute inset-0 flex items-center justify-center -translate-y-20 md:-translate-y-28">
+      <div
+        className="absolute inset-0 flex items-center justify-center -translate-y-20 md:-translate-y-28"
+        style={{ mixBlendMode: isDark ? "screen" : "multiply" }}
+      >
         <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] flex items-center justify-center">
           <video
             autoPlay
@@ -23,7 +25,6 @@ const HeroSection = () => {
             muted
             playsInline
             className="w-full h-full object-contain"
-            style={{ mixBlendMode: isDark ? "screen" : "multiply" }}
             src="/videos/hero-cube.mp4"
           />
         </div>
