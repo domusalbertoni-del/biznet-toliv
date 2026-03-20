@@ -32,22 +32,21 @@ const HeroSection = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-12 md:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          className="text-center"
         >
           <p className="text-[11px] font-semibold tracking-[0.35em] uppercase text-foreground/60 mb-5">
             Build the future with hyprbiz
           </p>
 
-          <h1 className="font-display font-bold text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-tight mb-8 max-w-3xl">
-            Impulse your business
-            <br />
-            through networking
-            <br />
-            events with AI.
+          <h1 className="font-display font-bold text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[0.95] tracking-tight mb-8">
+            Impulse your business through
+            <br className="hidden md:block" />
+            {" "}networking events with AI.
           </h1>
 
           <Link
