@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 const ALPHABETS = "你好世界未来智能網絡事件АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯαβγδεζηθλμπσφψωアイウエオカキクケコ가나다라마바사아자차카타파하";
 
-const useTextScramble = (text: string, delay = 600) => {
+const useTextScramble = (text: string, delay = 300) => {
   const words = text.split(" ");
   const [resolvedCount, setResolvedCount] = useState(0);
   const [scrambledWords, setScrambledWords] = useState<string[]>([]);
