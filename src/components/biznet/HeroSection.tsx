@@ -73,7 +73,7 @@ const HeroSection = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const videoRef = useRef<HTMLVideoElement>(null);
-  const display = useTextScramble("Impulse your business through networking events with AI.", 300);
+  const display = useTextScramble("Know who to talk to. Before you say hello.", 300);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -124,7 +124,7 @@ const HeroSection = () => {
           className="text-center"
         >
           <p className="text-[11px] font-semibold tracking-[0.35em] uppercase text-foreground/60 mb-5">
-            Build the future with hyprbiz
+            AI-powered corporate networking
           </p>
 
           <h1 className="font-display font-bold text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[0.95] tracking-tight mb-8">

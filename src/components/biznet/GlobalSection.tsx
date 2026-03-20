@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 
 const countries = [
-  "USA", "United Kingdom", "Germany", "India", "Japan", "Canada",
-  "France", "Australia", "Singapore", "Brazil", "South Korea", "Israel",
-  "Netherlands", "Sweden", "Switzerland", "Ireland", "UAE", "Mexico",
-  "South Africa", "Philippines", "Norway", "Finland", "Italy", "Spain",
+  "Tech Conferences", "Startup Summits", "VC Meetups", "Sales Kickoffs",
+  "Industry Galas", "MBA Networking", "Board Dinners", "Pitch Days",
+  "Accelerator Demo Days", "Innovation Labs", "Corporate Retreats", "Chamber Events",
 ];
 
 const GlobalSection = () => {
@@ -22,7 +21,7 @@ const GlobalSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
           <div>
             <div className="grid grid-cols-3 gap-3 mb-8">
-              {["SOC 2 Compliance", "GDPR Ready", "On-Prem Deployment"].map((tag) => (
+              {["LinkedIn Login", "Privacy First", "Per-Event Activation"].map((tag) => (
                 <div key={tag} className="px-4 py-3 rounded-xl border border-border bg-card text-center">
                   <span className="text-xs font-semibold tracking-wider">{tag}</span>
                 </div>
@@ -56,3 +55,4 @@ const GlobalSection = () => {
 };
 
 export default GlobalSection;
+n;

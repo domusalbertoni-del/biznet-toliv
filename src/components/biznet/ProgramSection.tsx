@@ -1,28 +1,27 @@
 import { motion } from "framer-motion";
-import { DollarSign, Users, Cpu } from "lucide-react";
-import aiHumanTouch from "@/assets/ai-human-touch.jpg";
+import { MessageSquare, Users, TrendingUp } from "lucide-react";
 
 const cards = [
   {
-    icon: DollarSign,
-    eyebrow: "Capital",
-    title: "Enterprise-Grade AI Infrastructure",
-    description: "Custom-built models deployed on your infrastructure. Full data sovereignty and compliance from day one.",
-    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&h=600&fit=crop",
-  },
-  {
     icon: Users,
-    eyebrow: "Coaching",
-    title: "AI That Connects You with People",
-    description: "Dedicated AI architects work alongside your team to identify opportunities, build roadmaps, and deploy solutions.",
-    image: aiHumanTouch,
+    eyebrow: "Intelligence",
+    title: "Know Everyone in the Room",
+    description: "Log in with LinkedIn and our AI instantly analyzes every attendee at your event. Know their role, company, background, and why they matter to you — before you say a word.",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
   },
   {
-    icon: Cpu,
-    eyebrow: "Community",
-    title: "Join 200+ Enterprise Partners",
-    description: "Access exclusive research, events, and partnerships within our network of forward-thinking companies.",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+    icon: MessageSquare,
+    eyebrow: "Strategy",
+    title: "Walk In With a Playbook",
+    description: "Three modes: find clients, find partners, or just network. Your agent gives you personalized talking points for every conversation so you never waste a second.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+  },
+  {
+    icon: TrendingUp,
+    eyebrow: "Compounding",
+    title: "Your Network Grows After You Leave",
+    description: "Post-event follow-up suggestions, relationship scoring, and deal tracking. Every event compounds into a network that works for you 24/7.",
+    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&h=600&fit=crop",
   },
 ];
 
@@ -36,7 +35,7 @@ const ProgramSection = () => {
         className="text-center mb-20"
       >
         <p className="text-[11px] font-semibold tracking-[0.35em] uppercase text-muted-foreground mb-5">
-          Our Platform
+          How it works
         </p>
       </motion.div>
 
@@ -45,13 +44,13 @@ const ProgramSection = () => {
         <div className="flex animate-marquee gap-8">
           {[...Array(3)].map((_, setIdx) => (
             <div key={setIdx} className="flex gap-8 shrink-0">
-              {["Custom Models", "Predictive Analytics", "Workflow Automation", "Document AI", "Conversational Agents", "Fraud Detection", "Data Pipelines", "Edge AI"].map((label) => (
+              {["LinkedIn Login", "Attendee Matching", "Conversation Scripts", "Intent Analysis", "Client Discovery", "Partner Matching", "Post-Event Follow-up", "Corporate Events"].map((label) => (
                 <div
                   key={`${setIdx}-${label}`}
                   className="flex items-center gap-3 px-6 py-3 rounded-full border border-border bg-card whitespace-nowrap"
                 >
                   <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center">
-                    <Cpu className="w-4 h-4 text-muted-foreground" />
+                    <Users className="w-4 h-4 text-muted-foreground" />
                   </div>
                   <span className="text-sm font-medium">{label}</span>
                 </div>

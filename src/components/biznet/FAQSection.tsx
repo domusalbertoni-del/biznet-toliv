@@ -13,7 +13,7 @@ const FAQSection = () => {
               key={i}
               className="font-display font-bold text-4xl md:text-6xl tracking-tight text-foreground/10 mx-6 shrink-0"
             >
-              Got any questions?
+              Stop wasting time at events.
             </span>
           ))}
         </div>
@@ -41,7 +41,7 @@ const FAQSection = () => {
             What's Next
           </p>
           <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-6">
-            Let's Talk
+            Be first in the room.
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
             Schedule a call with our team to discuss how Biznet AI can transform your business operations.
@@ -59,3 +59,4 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
+default FAQSection;

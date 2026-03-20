@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const perks = [
-  { value: "$5M", label: "in Free Cloud Credits" },
-  { value: "24/7", label: "Dedicated Support Engineers" },
+  { value: "3 min", label: "to know everyone in the room" },
+  { value: "10×", label: "more meaningful conversations per event" },
 ];
 
 const PerksSection = () => {
