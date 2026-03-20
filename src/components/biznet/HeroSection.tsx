@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const ALPHABETS = "你好世界未来智能網絡事件АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯαβγδεζηθλμπσφψωアイウエオカキクケコ가나다라마바사아자차카타파하";
 
@@ -72,7 +72,23 @@ const useTextScramble = (text: string, delay = 300) => {
 const HeroSection = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const videoRef = useRef<HTMLVideoElement>(null);
   const display = useTextScramble("Impulse your business through networking events with AI.", 300);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      // Seek back 0.3s before end for seamless loop
+      if (video.duration && video.currentTime > video.duration - 0.3) {
+        video.currentTime = 0.1;
+      }
+    };
+
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    return () => video.removeEventListener("timeupdate", handleTimeUpdate);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
@@ -87,6 +103,7 @@ const HeroSection = () => {
       >
         <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] flex items-center justify-center">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
