@@ -11,14 +11,14 @@ const HeroSection = () => {
       <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-[hsl(0,0%,8%)] via-[hsl(0,0%,15%)] to-[hsl(0,0%,25%)]" />
 
       {/* Video cube */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center -translate-y-20 md:-translate-y-28">
         <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] flex items-center justify-center">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-screen"
+            className="w-full h-full object-contain [mix-blend-mode:multiply] dark:[mix-blend-mode:screen]"
             src="/videos/hero-cube.mp4"
           />
         </div>
@@ -43,7 +43,8 @@ const HeroSection = () => {
 
           <Link
             to="/signup"
-            className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-background/80 backdrop-blur-sm text-foreground text-sm font-semibold tracking-wider uppercase hover:bg-background transition-all border border-border/50"
+            className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-background/80 backdrop-blur-sm text-foreground text-sm font-semibold tracking-wider uppercase hover:bg-background transition-all border border-border/50 not-italic"
+            style={{ fontFamily: "'Moonwalk', sans-serif" }}
           >
             <span className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-300 via-pink-200 to-amber-200 inline-block" />
             Get Started
