@@ -72,7 +72,7 @@ const useTextScramble = (text: string, delay = 300) => {
 const HeroSection = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const display = useTextScramble("Impulse your business through networking events with AI.", 600);
+  const display = useTextScramble("Impulse your business through networking events with AI.", 300);
 
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
