@@ -29,7 +29,7 @@ const HeroSection = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
           <p className="text-[11px] font-semibold tracking-[0.35em] uppercase text-foreground/60 mb-5">
-            Build the future with AI
+            Build the future with hypr.biz
           </p>
 
           <h1 className="font-display font-bold text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-tight mb-8 max-w-3xl">
