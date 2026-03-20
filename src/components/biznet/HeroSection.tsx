@@ -42,10 +42,34 @@ const HeroSection = () => {
             Build the future with hypr.biz
           </p>
 
-          <h1 className="font-display font-bold text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-tight mb-8 max-w-3xl">
-            We power the next
-            <br />
-            generation of AI.
+          <h1 className="not-italic mb-8 max-w-3xl">
+            <span
+              className="block text-[clamp(3rem,9vw,7rem)] leading-[0.95] tracking-tight"
+              style={{ fontFamily: "'Moonwalk', sans-serif" }}
+            >
+              HYPRBIZ
+              {/* Sparkle stars */}
+              <svg
+                className="inline-block w-[clamp(1.5rem,3vw,3rem)] h-[clamp(1.5rem,3vw,3rem)] ml-2 -mt-4"
+                viewBox="0 0 32 32"
+                fill="currentColor"
+              >
+                <path d="M16 0C16 0 19.5 12.5 32 16C19.5 19.5 16 32 16 32C16 32 12.5 19.5 0 16C12.5 12.5 16 0 16 0Z" />
+              </svg>
+              <svg
+                className="inline-block w-[clamp(0.75rem,1.5vw,1.5rem)] h-[clamp(0.75rem,1.5vw,1.5rem)] ml-1 -mt-10 opacity-60"
+                viewBox="0 0 32 32"
+                fill="currentColor"
+              >
+                <path d="M16 0C16 0 19.5 12.5 32 16C19.5 19.5 16 32 16 32C16 32 12.5 19.5 0 16C12.5 12.5 16 0 16 0Z" />
+              </svg>
+            </span>
+            <span
+              className="block text-[clamp(1rem,2.5vw,2rem)] leading-[1.2] tracking-[0.15em] mt-2 text-foreground/50 font-medium"
+              style={{ fontFamily: "'Moonwalk', sans-serif" }}
+            >
+              By Toliv
+            </span>
           </h1>
 
           <Link
