@@ -13,9 +13,9 @@ const cards = [
   {
     icon: Users,
     eyebrow: "Coaching",
-    title: "Hands-On AI Strategy with Our Team",
+    title: "AI That Connects You with People",
     description: "Dedicated AI architects work alongside your team to identify opportunities, build roadmaps, and deploy solutions.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+    image: aiHumanTouch,
   },
   {
     icon: Cpu,
