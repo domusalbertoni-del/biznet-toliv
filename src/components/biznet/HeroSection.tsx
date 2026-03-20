@@ -28,7 +28,7 @@ const useTextScramble = (text: string, delay = 300) => {
         const currentWord = words[wordIdx];
         const targetIdx = wordIdx;
         let frame = 0;
-        const frames = 14;
+        const frames = 8;
 
         const interval = setInterval(() => {
           frame++;
