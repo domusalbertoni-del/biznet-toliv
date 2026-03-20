@@ -104,8 +104,8 @@
   }
 
   body {
-    @apply bg-background text-foreground uppercase italic;
-    font-family: 'Playfair Display', serif;
+    @apply bg-background text-foreground uppercase;
+    font-family: 'Outfit', sans-serif;
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
