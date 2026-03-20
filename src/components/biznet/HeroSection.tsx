@@ -2,60 +2,77 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 const ALPHABETS = "你好世界未来智能網絡事件АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯαβγδεζηθλμπσφψωアイウエオカキクケコ가나다라마바사아자차카타파하";
 
-const useTextScramble = (text: string, delay = 400) => {
-  const [display, setDisplay] = useState("");
-  const [done, setDone] = useState(false);
-
-  const scramble = useCallback(() => {
-    const chars = text.split("");
-    const total = chars.length;
-    let frame = 0;
-    const maxFrames = 28;
-
-    const interval = setInterval(() => {
-      frame++;
-      const progress = frame / maxFrames;
-
-      const result = chars.map((char, i) => {
-        if (char === " " || char === "\n") return char;
-        const charThreshold = i / total;
-        if (progress > charThreshold + 0.3) return char;
-        return ALPHABETS[Math.floor(Math.random() * ALPHABETS.length)];
-      });
-
-      setDisplay(result.join(""));
-
-      if (frame >= maxFrames) {
-        clearInterval(interval);
-        setDisplay(text);
-        setDone(true);
-      }
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [text]);
+const useTextScramble = (text: string, delay = 600) => {
+  const words = text.split(" ");
+  const [resolvedCount, setResolvedCount] = useState(0);
+  const [scrambledWords, setScrambledWords] = useState<string[]>([]);
 
   useEffect(() => {
-    const initialScramble = Array.from({ length: text.length }, (_, i) =>
-      text[i] === " " ? " " : ALPHABETS[Math.floor(Math.random() * ALPHABETS.length)]
-    ).join("");
-    setDisplay(initialScramble);
+    // Initialize all words as scrambled
+    setScrambledWords(
+      words.map((w) =>
+        w.split("").map((c) => (c === " " ? " " : ALPHABETS[Math.floor(Math.random() * ALPHABETS.length)])).join("")
+      )
+    );
 
-    const timer = setTimeout(scramble, delay);
-    return () => clearTimeout(timer);
-  }, [scramble, delay, text]);
+    const startTimeout = setTimeout(() => {
+      let wordIdx = 0;
 
-  return { display, done };
+      const resolveNext = () => {
+        if (wordIdx >= words.length) return;
+
+        const currentWord = words[wordIdx];
+        const targetIdx = wordIdx;
+        let frame = 0;
+        const frames = 14;
+
+        const interval = setInterval(() => {
+          frame++;
+          const progress = frame / frames;
+
+          setScrambledWords((prev) => {
+            const next = [...prev];
+            next[targetIdx] = currentWord
+              .split("")
+              .map((char, ci) => {
+                if (progress > (ci / currentWord.length) + 0.2) return char;
+                return ALPHABETS[Math.floor(Math.random() * ALPHABETS.length)];
+              })
+              .join("");
+            return next;
+          });
+
+          if (frame >= frames) {
+            clearInterval(interval);
+            setScrambledWords((prev) => {
+              const next = [...prev];
+              next[targetIdx] = currentWord;
+              return next;
+            });
+            setResolvedCount(targetIdx + 1);
+            wordIdx++;
+            setTimeout(resolveNext, 80);
+          }
+        }, 40);
+      };
+
+      resolveNext();
+    }, delay);
+
+    return () => clearTimeout(startTimeout);
+  }, []);
+
+  return scrambledWords.join(" ");
 };
 
 const HeroSection = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const { display, done } = useTextScramble("Impulse your business through networking events with AI.", 600);
+  const display = useTextScramble("Impulse your business through networking events with AI.", 600);
 
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
