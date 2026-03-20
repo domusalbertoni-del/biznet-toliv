@@ -20,7 +20,7 @@ const CubeFace = ({
         anchorY="middle"
         letterSpacing={0.15}
       >
-        BIZNET AI
+        HYPR.BIZ
       </Text>
     </group>
   );
