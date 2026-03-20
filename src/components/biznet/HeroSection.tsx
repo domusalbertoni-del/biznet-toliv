@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 const ALPHABETS = "你好世界未来智能網絡事件АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯαβγδεζηθλμπσφψωアイウエオカキクケコ가나다라마바사아자차카타파하";
 
-const useTextScramble = (text: string, delay = 600) => {
+const useTextScramble = (text: string, delay = 300) => {
   const words = text.split(" ");
   const [resolvedCount, setResolvedCount] = useState(0);
   const [scrambledWords, setScrambledWords] = useState<string[]>([]);
@@ -28,7 +28,7 @@ const useTextScramble = (text: string, delay = 600) => {
         const currentWord = words[wordIdx];
         const targetIdx = wordIdx;
         let frame = 0;
-        const frames = 14;
+        const frames = 8;
 
         const interval = setInterval(() => {
           frame++;
@@ -55,9 +55,9 @@ const useTextScramble = (text: string, delay = 600) => {
             });
             setResolvedCount(targetIdx + 1);
             wordIdx++;
-            setTimeout(resolveNext, 80);
+            setTimeout(resolveNext, 40);
           }
-        }, 40);
+        }, 25);
       };
 
       resolveNext();
@@ -72,7 +72,7 @@ const useTextScramble = (text: string, delay = 600) => {
 const HeroSection = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const display = useTextScramble("Impulse your business through networking events with AI.", 600);
+  const display = useTextScramble("Impulse your business through networking events with AI.", 300);
 
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
