@@ -30,21 +30,21 @@ const BiznetNavbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-1.5 text-foreground not-italic" style={{ fontFamily: "'Moonwalk', sans-serif" }}>
-          <span className="text-xl tracking-tight">HYPRBIZ</span>
-          <svg className="w-3.5 h-3.5 -mt-2" viewBox="0 0 32 32" fill="currentColor">
+          <span className="text-2xl tracking-tight">HYPRBIZ</span>
+          <svg className="w-4 h-4 -mt-2" viewBox="0 0 32 32" fill="currentColor">
             <path d="M16 0C16 0 19.5 12.5 32 16C19.5 19.5 16 32 16 32C16 32 12.5 19.5 0 16C12.5 12.5 16 0 16 0Z" />
           </svg>
-          <span className="text-[10px] text-muted-foreground tracking-[0.15em] ml-1">By Toliv</span>
+          <span className="text-[11px] text-muted-foreground tracking-[0.15em] ml-1">By Toliv</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-9">
           {links.map((l) => (
             <Link
               key={l.href}
               to={l.href}
-              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors tracking-widest uppercase"
+              className="text-[13px] font-semibold text-muted-foreground hover:text-foreground transition-colors tracking-widest uppercase"
             >
               {l.label}
             </Link>
