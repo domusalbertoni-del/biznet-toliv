@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const HeroSection = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background gradient */}
@@ -18,7 +22,8 @@ const HeroSection = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-contain [mix-blend-mode:multiply] dark:[mix-blend-mode:screen]"
+            className="w-full h-full object-contain"
+            style={{ mixBlendMode: isDark ? "screen" : "multiply" }}
             src="/videos/hero-cube.mp4"
           />
         </div>
